@@ -1,0 +1,96 @@
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="page-title">
+          <h2>Avis</h2>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <nav aria-label="breadcrumb" class="theme-breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Avis</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- breadcrumb End -->
+
+
+<!-- section start -->
+<section class="section-b-space blog-detail-page review-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <button
+        type="button"
+        class="btn btn-solid"
+
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+      ajouter avis
+      </button>
+      <br>
+      <br>
+      <div *ngIf="list?.length == 0" class="text-center">
+        <h3 style="text-align: center; color: red"> Aucun avis </h3>
+      </div>
+        <ul class="comment-section"  *ngFor="let item of list">
+          
+         
+          <li  >
+            <div class="media"><img src="api/{{item.user.image}}" alt="Generic placeholder image">
+              <div class="media-body">
+                <h6>{{item.user.nom}} <span>{{item.date}}</span></h6>
+                <p *ngIf="item.etat == null" >{{item.message}} </p>
+                <p *ngIf="item.etat == 1" style="color: red; font-size: 20px;"> Signaler </p>
+
+
+              </div>
+            </div>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section ends -->
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ajouter avis</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <textarea class="form-control"  #inputMessage name="" id="" cols="30" rows="10" ></textarea>
+
+        <div style="text-align: center">
+
+          <button type="button" (click)="ajouter()" class="btn btn-success" data-bs-dismiss="modal" >ajouter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- footer start -->
