@@ -28,6 +28,8 @@ const checkout = require("./routes/checkout");
 const coupon = require("./routes/coupon");
 const avis = require("./routes/avis");
 const cors = require("cors");
+
+const fireebase = require("./setData");
 const { email } = require("./controllers/emaildeletePanier/email");
 const {
   emaildeletecoupoun,
@@ -91,6 +93,15 @@ app.use("/coupon", coupon);
 app.use("/like", likeRouter); // http://localhost:8080/like
 app.use("/noterproduit", noterProduitRouter);
 app.use("/avis", avis);
+app.post("/saveData", function (req, res) {
+  fireebase.saveData(req.body,function (data) {
+
+    res.send(data);
+   
+  }
+  );
+});
+
 // http://localhost:8080/paiment
 
 // const someDate = new Date('2022-12-07 00:49:00');

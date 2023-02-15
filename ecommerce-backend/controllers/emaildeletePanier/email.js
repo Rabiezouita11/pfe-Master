@@ -8,8 +8,8 @@ const email = (nom , email , produit) => {
     port: 25,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "", // generated ethereal user
-      pass: "",
+      user: "rabie.zouita@esprit.tn", // generated ethereal user
+      pass: "ba9arwechi", // generated ethereal password
     },
   });
   const mailOptions = {
