@@ -21,6 +21,7 @@ import {AjouterLivreurComponent} from "./livreur/ajouter-livreur/ajouter-livreur
 import {UpdateLivreurComponent} from "./livreur/update-livreur/update-livreur.component";
 import {ContactComponent} from "./contact/contact.component";
 import { AvisComponent } from './avis/avis.component';
+import { EtatDeSerreComponent } from './etat-de-serre/etat-de-serre.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'category/ajouterCategory', component: AjouterCategoryComponent , data: {title: 'Product'} },
   { path: 'category/update/:id', component: AjouterCategoryComponent , data: {title: 'Product'} },
 
+  { path: 'etat_de_serreIntellegent', component: EtatDeSerreComponent , data: {title: 'Administrateur'}},
 
 
   { path: 'Listproduct', component: ProductComponent , data: {title: 'Product'} },

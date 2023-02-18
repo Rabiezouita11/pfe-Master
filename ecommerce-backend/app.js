@@ -28,8 +28,10 @@ const checkout = require("./routes/checkout");
 const coupon = require("./routes/coupon");
 const avis = require("./routes/avis");
 const cors = require("cors");
-
-const fireebase = require("./setData");
+// firebase database config file 
+const fireebase = require("./firebase/setData");
+const getDatafirebase = require("./firebase/getData");
+const updateDatafirebase = require("./firebase/updateData");
 const { email } = require("./controllers/emaildeletePanier/email");
 const {
   emaildeletecoupoun,
@@ -93,6 +95,7 @@ app.use("/coupon", coupon);
 app.use("/like", likeRouter); // http://localhost:8080/like
 app.use("/noterproduit", noterProduitRouter);
 app.use("/avis", avis);
+// save data in firebase database
 app.post("/saveData/", function (req, res) {
   fireebase.saveData(req.body,function (err,data) {
 
@@ -101,8 +104,19 @@ app.post("/saveData/", function (req, res) {
   }
   );
 });
+// how recupere data from firebase database
+app.get("/getData/", function (req, res) {
+  getDatafirebase.getData(function (err,data) {
+    res.send(data);
+  });
+});
 
-
+// how update data from firebase database
+app.put("/updateData/", function (req, res) {
+  updateDatafirebase.updateData(req.body,function (err,data) {
+    res.send(data);
+  });
+});
 
 // http://localhost:8080/paiment
 
