@@ -1,14 +1,13 @@
 const firebase = require("./firebaseConfg");
 
 module.exports={
-    saveData: function (req , res){
-        const db = firebase.database();
-        const ref = db.ref("users");
-        ref.push({
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password
-        });
-        res.send("Data saved");
+    saveData: function (req , callback){
+    let username = req.username;
+    firebase.database().ref('users/' + username).set({
+        username: username,
+    
+    });
+        callback(null, {"statutscode":200 , "message" : "Data saved successfully"});
+
     }
 }

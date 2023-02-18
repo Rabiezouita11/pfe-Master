@@ -93,14 +93,16 @@ app.use("/coupon", coupon);
 app.use("/like", likeRouter); // http://localhost:8080/like
 app.use("/noterproduit", noterProduitRouter);
 app.use("/avis", avis);
-app.post("/saveData", function (req, res) {
-  fireebase.saveData(req.body,function (data) {
+app.post("/saveData/", function (req, res) {
+  fireebase.saveData(req.body,function (err,data) {
 
     res.send(data);
    
   }
   );
 });
+
+
 
 // http://localhost:8080/paiment
 
