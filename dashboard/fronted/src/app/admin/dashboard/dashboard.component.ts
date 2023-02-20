@@ -95,7 +95,7 @@ export class DashboardComponent implements OnInit {
       const time = new Date(item.time);
       const diff = now.getTime() - time.getTime();
       const seconds = Math.floor(diff / 1000);
-      if (seconds > 5) {
+      if (seconds > 10) {
         item.status = 'System shut down';
       }
       else  

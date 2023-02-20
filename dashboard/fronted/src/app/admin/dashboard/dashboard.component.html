@@ -16,13 +16,22 @@
                     *ngIf="data && data.length && data[0].status === 'System shut down'">
                     <h3 style="color: red; ">النظام حاليا غير متصل
                     </h3>
+                    <div *ngFor="let time of data">
+                   
+                        <h3 style="color: red; ">{{time.time}}</h3>
+                                     </div>
                 </div>
-        
+            
         
                 <div style="text-align: center;color: green;"
                     *ngIf="data && data.length && data[0].status === 'System is running'">
                     <h3 style="color:green">النظام متصل حاليا</h3>
+                    <div *ngFor="let time of data">
+                   
+                        <h3 style="color:green">     {{time.time}}</h3>
+                                     </div>
                 </div>
+               
                 </ol>
             </div>
         </div>
