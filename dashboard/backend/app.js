@@ -5,6 +5,10 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 const getDatafirebase = require("./firebase/getTime");
 const getTemperatureAir = require("./firebase/getTemperatureHumiditerAir");
+const getMode = require("./firebase/getMode");
+const getHumiditySol = require("./firebase/getHumiditySol");
+const changeMode = require("./firebase/changerMode");
+const getWaterSensor = require("./firebase/getWaterSensor");
 const authRouter = require("./routes/auth");
 const bodyParser = require("body-parser");
 const db = require("./models/index");
@@ -70,6 +74,40 @@ app.get("/getTemperatureAir/", function (req, res) {
     res.send(data);
   });
 });
+app.get("/getMode/", function (req, res) {
+  getMode.getMode(function (err,data) {
+    res.send(data);
+  });
+});
+app.put("/changeMode/", function (req, res) {
+
+    changeMode.updateMode(req.body,function (err,data) {
+      if (err) {
+        res.status(500).send({
+          message: err.message || "Some error occurred while retrieving notes.",
+        });
+      } else {
+        res.send(data);
+      }
+     
+      
+    });
+
+ 
+});
+
+app.get("/getHumiditySol/", function (req, res) {
+  getHumiditySol.getHumiditySol(function (err,data) {
+    res.send(data);
+  });
+});
+app.get("/getWaterSensor/", function (req, res) {
+  getWaterSensor.getWaterSensor(function (err,data) {
+    res.send(data);
+  });
+});
+
+
 
 // // how update data from firebase database
 // app.put("/updateData/", function (req, res) {

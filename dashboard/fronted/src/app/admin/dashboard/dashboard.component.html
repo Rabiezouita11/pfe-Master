@@ -5,7 +5,7 @@
             <div class="col-lg-6">
                 <div class="page-header-left">
                     <h3>Dashboard
-                        <small> hello</small>
+                     
                     </h3>
                 </div>
             </div>
@@ -37,6 +37,8 @@
         </div>
     </div>
 </div>
+
+
 <!-- Container-fluid Ends-->
 
 
@@ -52,12 +54,14 @@
                         <div class="media static-top-widget align-items-center">
                             <div class="icons-widgets">
                                 <div class="align-self-center text-center">
-                                    <i data-feather="navigation" class="font-warning"></i>
+                                   
+                                    <h3>Air</h3>
+                                   
                                 </div>
                             </div>
                             <div class="media-body media-doller">
                                 <span class="m-0">temperature</span>
-                                <h3 class="mb-0">{{temperatureAir.temperature}}C°<small> </small>
+                                <h3 class="mb-0">{{temperatureAir?.temperature}}C°<small> </small>
                                 </h3>
                             </div>
                         </div>
@@ -70,18 +74,51 @@
                         <div class="media static-top-widget align-items-center">
                             <div class="icons-widgets">
                                 <div class="align-self-center text-center">
-                                    <i data-feather="box" class="font-secondary"></i>
+                                   
+                                    <h3>Air</h3>
+                                   
                                 </div>
                             </div>
                             <div class="media-body media-doller">
                                 <span class="m-0">humidité</span>
-                                <h3 class="mb-0">{{temperatureAir.humidite}}%<small> </small>
+                                <h3 class="mb-0">{{temperatureAir?.humidite}}%<small> </small>
                                 </h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-xxl-3 col-md-6 xl-50">
+                <div class="card o-hidden widget-cards">
+                    <div class="danger-box card-body">
+                        <div class="media static-top-widget align-items-center">
+                            <div class="icons-widgets">
+                                <div class="align-self-center text-center">
+                                   
+                                    <h3>Sol</h3>
+                                   
+                                </div>
+                            </div>
+                            <div class="media-body media-doller">
+                                <span class="m-0">humidité</span>
+                                <h3 class="mb-0">{{humiditySol?.humidite}}%<small> </small>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-xxl-3 col-md-6 xl-50">
+              
+                    <img src="assets/water Sensor.jpg" width="400px" height="250px" alt="">
+              
+               <h3 class="mb-0" style="color:red; font-size: 40px;">{{waterSensor?.Etat}}<small> </small> </h3>
+
+            </div>
+            
+         
 
         </div>
         <!-- <div id ="chart">
@@ -101,20 +138,32 @@
 
       
         <div class="container-fluid">
-
-
+<input type="hidden" name="" value="1" #inputManuel>
+<input type="hidden" name="" value="0" #inputAuto>
             <div class="row">
                 <div class="col-xxl-3 col-md-6 xl-50">
                     <div class="card o-hidden widget-cards">
-                        <div class="secondary-box card-body">
-                            <button class="form-control" (click)="switchMode()">Switch Mode</button>
+                        <div class="secondary-box card-body" *ngIf="mode?.etat == '1'" >
+                          
+                            <button class="form-control btn btn-outline-success"  style="font-size: 20px;"  (click)="switchAutomatic()">تغيير النظام</button>
+                            <h3 *ngIf="mode?.etat == '1'"  style="font-size: 20px;">وضع يدوي</h3>
+                        </div>
+                        <div class="secondary-box card-body" *ngIf="mode?.etat == '0'" >
+                          
+                            <button class="form-control btn btn-outline-info"   style="font-size: 20px;"  (click)="switchManuel()">تغيير النظام </button>
+                            <h3 *ngIf="mode?.etat == '0'" style="font-size: 20px;">وضع تلقائي</h3>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+       
+           
+       
 
     </div>
+
+
+
 </div>
 <!-- Container-fluid Ends-->

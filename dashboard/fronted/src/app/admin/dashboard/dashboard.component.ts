@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -75,6 +75,11 @@ export class DashboardComponent implements OnInit {
   data: any;
   temperatureAir: any;
   isOffline: boolean = false;
+  mode :any;
+  humiditySol :any;
+  waterSensor :any;
+  @ViewChild('inputManuel') inputManuel!: ElementRef;
+  @ViewChild('inputAuto') inputAuto!: ElementRef;
   // public barChartLabels= ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
   // public barChartData = {data: [70,80,90], label: 'IMC'};
 
@@ -95,7 +100,7 @@ export class DashboardComponent implements OnInit {
       const time = new Date(item.time);
       const diff = now.getTime() - time.getTime();
       const seconds = Math.floor(diff / 1000);
-      if (seconds > 10) {
+      if (seconds > 15) {
         item.status = 'System shut down';
       }
       else  
@@ -106,7 +111,7 @@ export class DashboardComponent implements OnInit {
     if (isAnyOffline && !this.isOffline) {
       // System just went offline
       this.isOffline = true;
-      this.toastr.error('System is currently offline');
+      this.toastr.error('النظام حاليا غير متصل');
     } else if (!isAnyOffline && this.isOffline) {
       // System just went online
       this.isOffline = false;
@@ -120,7 +125,10 @@ export class DashboardComponent implements OnInit {
     this.getData(); // get initial data
     setInterval(() => {
       this.getData();
-      this.getTemperaturAir(); // get updated data every 5 seconds
+      this.getTemperaturAir();
+      this.getMode();
+      this.getHumidtySol();
+      this.getWaterSensor(); // get updated data every 5 seconds
     }, 1000);
  
 
@@ -148,6 +156,98 @@ getTemperaturAir() {
     // call updateStatus() every second
   });
 }
-switchMode() {
+
+switchAutomatic () {
+  // console.log('switch to auto ' +this.inputAuto.nativeElement.value);
+  
+  // Check if any devices are offline
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  
+  if (isOffline) {
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
+  
+  let mode = {
+    etat: this.inputAuto.nativeElement.value
+  }
+  
+  this.http.put('api/changeMode/', mode).subscribe((response: any) => {
+    // Handle response
+  });
+  
+  // Toast message for switching to automatic mode
+  this.toastr.success('تم تغيير الوضع الى وضع تلقائي','نجاح',{
+    timeOut: 5000,
+    progressAnimation: 'increasing',
+    progressBar: true,
+    positionClass: 'toast-top-right',
+  });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+switchManuel () {
+  // console.log('switch to auto ' +this.inputAuto.nativeElement.value);
+  
+  // Check if any devices are offline
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  
+  if (isOffline) {
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
+  
+  let mode = {
+    etat: this.inputManuel.nativeElement.value
+  }
+  
+  this.http.put('api/changeMode/', mode).subscribe((response: any) => {
+    // Handle response
+  });
+  
+  // Toast message for switching to automatic mode
+  this.toastr.success('تم تغيير الوضع الى وضع يدوي','نجاح',{
+    timeOut: 5000,
+    progressAnimation: 'increasing',
+    progressBar: true,
+    positionClass: 'toast-top-right',
+  });
+}
+
+
+
+
+
+
+
+
+getMode() {
+  this.http.get('api/getMode/').subscribe((response : any ) => {
+    this.mode = response;
+  });
+
+}
+getHumidtySol() {
+  this.http.get('api/getHumiditySol/').subscribe((response : any ) => {
+    this.humiditySol = response;
+  });
+}
+getWaterSensor() {
+  this.http.get('api/getWaterSensor/').subscribe((response : any ) => {
+    this.waterSensor = response;
+  });
+
+} 
 }
