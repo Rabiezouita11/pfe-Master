@@ -78,6 +78,8 @@ export class DashboardComponent implements OnInit {
   mode :any;
   humiditySol :any;
   waterSensor :any;
+  Capteurpluie: any;
+  getCapteurCo2: any;
   @ViewChild('inputManuel') inputManuel!: ElementRef;
   @ViewChild('inputAuto') inputAuto!: ElementRef;
   // public barChartLabels= ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
@@ -128,7 +130,9 @@ export class DashboardComponent implements OnInit {
       this.getTemperaturAir();
       this.getMode();
       this.getHumidtySol();
-      this.getWaterSensor(); // get updated data every 5 seconds
+      this.getWaterSensor();
+      this.getCapteurpluie();
+      this.getcapteurCo2(); // get updated data every 5 seconds
     }, 1000);
  
 
@@ -250,4 +254,19 @@ getWaterSensor() {
   });
 
 } 
+getCapteurpluie() {
+  this.http.get('api/getCapteurpluie/').subscribe((response : any ) => {
+    this.Capteurpluie = response;
+  });
+
+
+}
+getcapteurCo2() {
+  this.http.get('api/getCapteurCo2/').subscribe((response : any ) => {
+    this.getCapteurCo2 = response;
+  });
+
+
+}
+
 }

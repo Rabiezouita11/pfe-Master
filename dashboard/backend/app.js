@@ -5,9 +5,11 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 const getDatafirebase = require("./firebase/getTime");
 const getTemperatureAir = require("./firebase/getTemperatureHumiditerAir");
+const getcapteurPluie = require("./firebase/getCapteurPluie");
 const getMode = require("./firebase/getMode");
 const getHumiditySol = require("./firebase/getHumiditySol");
 const changeMode = require("./firebase/changerMode");
+const getCapteurCo2 = require("./firebase/getCapteurCo2");
 const getWaterSensor = require("./firebase/getWaterSensor");
 const authRouter = require("./routes/auth");
 const bodyParser = require("body-parser");
@@ -103,6 +105,17 @@ app.get("/getHumiditySol/", function (req, res) {
 });
 app.get("/getWaterSensor/", function (req, res) {
   getWaterSensor.getWaterSensor(function (err,data) {
+    res.send(data);
+  });
+});
+
+app.get("/getcapteurPluie/", function (req, res) {
+  getcapteurPluie.getcapteurPluie(function (err,data) {
+    res.send(data);
+  });
+});
+app.get("/getCapteurCo2/", function (req, res) {
+  getCapteurCo2.getCaptureCo2(function (err,data) {
     res.send(data);
   });
 });

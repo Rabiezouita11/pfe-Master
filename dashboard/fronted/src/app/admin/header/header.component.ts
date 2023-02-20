@@ -12,10 +12,47 @@ import { ToastrService } from 'ngx-toastr';
 export class HeaderComponent implements OnInit {
   authenticated = false;
   listCommande : any =   []   
+  isOffline: boolean = false;
+  data: any;
   constructor(private http:HttpClient, private router:Router ,  private toastr: ToastrService) { }
 
+  updateStatus() {
+    const now = new Date();
+    let isAnyOffline: boolean = false;
+    for (let item of this.data) {
+      const time = new Date(item.time);
+      const diff = now.getTime() - time.getTime();
+      const seconds = Math.floor(diff / 1000);
+      if (seconds > 15) {
+        item.status = 'System shut down';
+      }
+      else  
+      {
+        item.status = 'System is running';
+      }
+    }
+    if (isAnyOffline && !this.isOffline) {
+      // System just went offline
+      this.isOffline = true;
+      this.toastr.error('النظام حاليا غير متصل');
+    } else if (!isAnyOffline && this.isOffline) {
+      // System just went online
+      this.isOffline = false;
+      this.toastr.success('النظام متصل حاليا');
+    }
+    // reassign the data array to trigger a change detection and update the table
+    this.data = [...this.data];
+  }
+
+
+
+
   ngOnInit(): void {
- 
+    this.getData(); // get initial data
+    setInterval(() => {
+      this.getData();
+    // get updated data every 5 seconds
+    }, 1000);
   }
   logout(): void {
 
@@ -43,5 +80,20 @@ export class HeaderComponent implements OnInit {
   }
 });
 }
+
+
+getData() {
+  this.http.get('api/getTime/').subscribe((response) => {
+    if (Array.isArray(response)) {
+      this.data = response;
+     
+    } else {
+      this.data = Object.values(response);
+    }
+   // log the data to the console for debugging
+    setInterval(() => this.updateStatus(), 1000); // call updateStatus() every second
+  });
+}
+
 
 }
