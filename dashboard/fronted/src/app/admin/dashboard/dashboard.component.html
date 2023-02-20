@@ -7,6 +7,7 @@
                     <h3>Dashboard
                      
                     </h3>
+                    
                 </div>
             </div>
             <div class="col-lg-6">
@@ -108,7 +109,20 @@
                     </div>
                 </div>
             </div>
-            
+            <div class="col-xxl-3 col-md-6 xl-50">
+                <div class="card o-hidden widget-cards">
+                    <div class="secondary-box card-body" *ngIf="mode?.etat == '1'" >
+                      
+                        <button class="form-control btn btn-outline-success"  style="font-size: 20px;"  (click)="switchAutomatic()">تغيير النظام</button>
+                        <h3 *ngIf="mode?.etat == '1'"  style="font-size: 20px;">وضع يدوي</h3>
+                    </div>
+                    <div class="secondary-box card-body" *ngIf="mode?.etat == '0'" >
+                      
+                        <button class="form-control btn btn-outline-info"   style="font-size: 20px;"  (click)="switchManuel()">تغيير النظام </button>
+                        <h3 *ngIf="mode?.etat == '0'" style="font-size: 20px;">وضع تلقائي</h3>
+                    </div>
+                </div>
+            </div>
 
             <div class="col-xxl-3 col-md-6 xl-50">
               
@@ -133,6 +147,69 @@
 
         </div>
 
+        <div class="col-xxl-3 col-md-6 xl-50">
+              
+            <img src="assets/moteur gif.gif" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.moteur == 'ON'"   >
+            <img src="assets/moteurOff.PNG" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.moteur == 'OFF'"   >
+           <h3 class="mb-0" style="color:red; font-size: 40px;">{{getStatusmanuel?.moteur}}<small> </small> </h3>
+
+        </div>
+        <div class="col-xxl-3 col-md-6 xl-50">
+              
+            <img src="assets/lampe OFF.jpg" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.led == 'ON'">
+            <img src="assets/lampe On.jpg" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.led == 'OFF'">
+           <h3 class="mb-0" style=" font-size: 40px;">{{getStatusmanuel?.led}}<small> </small> </h3>
+
+        </div>
+
+        <div class="col-xxl-3 col-md-6 xl-50">
+              
+            <img src="assets/pompe On.gif" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.pompe == 'ON'">
+            <img src="assets/pompe Off.PNG" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.pompe == 'OFF'">
+          
+           <h3 class="mb-0" style="color:red; font-size: 40px;">{{getStatusmanuel?.pompe}}<small> </small> </h3>
+
+        </div>
+
+        <div class="col-xxl-3 col-md-6 xl-50">
+              
+            <img src="assets/ventilateur on.gif" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.ventilateur == 'ON'">
+            <img src="assets/ventilateur Off.PNG" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.ventilateur == 'OFF'">
+           <h3 class="mb-0" style="color:red; font-size: 40px;">{{getStatusmanuel?.ventilateur}}<small> </small> </h3>
+
+        </div>
+        <div class="col-xxl-3 col-md-6 xl-50">
+              
+            <img src="assets/batterie.png" width="200px" height="200px" alt="">
+
+           <h3 class="mb-0" style="color:red; font-size: 40px;">{{getEtatBattrie?.Status}}%<small> </small> </h3>
+
+        </div>
+
+
+        <div class="col-xxl-3 col-md-6 xl-50">
+              
+            <img src="assets/K.png" width="200px" height="200px" alt="">
+
+           <h3 class="mb-0" style="color:red; font-size: 40px;">{{getNpk?.k}}<small> </small> </h3>
+
+        </div>
+
+        <div class="col-xxl-3 col-md-6 xl-50">
+              
+            <img src="assets/P.jpg" width="200px" height="200px" alt="">
+
+           <h3 class="mb-0" style="color:red; font-size: 40px;">{{getNpk?.p}}<small> </small> </h3>
+
+        </div>
+
+        <div class="col-xxl-3 col-md-6 xl-50">
+              
+            <img src="assets/N.jpg" width="200px" height="200px" alt="">
+
+           <h3 class="mb-0" style="color:red; font-size: 40px;">{{getNpk?.n}}<small> </small> </h3>
+
+        </div>
         </div>
         <br>
         <br><br>
@@ -156,20 +233,7 @@
 <input type="hidden" name="" value="1" #inputManuel>
 <input type="hidden" name="" value="0" #inputAuto>
             <div class="row">
-                <div class="col-xxl-3 col-md-6 xl-50">
-                    <div class="card o-hidden widget-cards">
-                        <div class="secondary-box card-body" *ngIf="mode?.etat == '1'" >
-                          
-                            <button class="form-control btn btn-outline-success"  style="font-size: 20px;"  (click)="switchAutomatic()">تغيير النظام</button>
-                            <h3 *ngIf="mode?.etat == '1'"  style="font-size: 20px;">وضع يدوي</h3>
-                        </div>
-                        <div class="secondary-box card-body" *ngIf="mode?.etat == '0'" >
-                          
-                            <button class="form-control btn btn-outline-info"   style="font-size: 20px;"  (click)="switchManuel()">تغيير النظام </button>
-                            <h3 *ngIf="mode?.etat == '0'" style="font-size: 20px;">وضع تلقائي</h3>
-                        </div>
-                    </div>
-                </div>
+              
             </div>
         </div>
        

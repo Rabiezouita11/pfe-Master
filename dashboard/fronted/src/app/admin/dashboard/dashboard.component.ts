@@ -80,6 +80,9 @@ export class DashboardComponent implements OnInit {
   waterSensor :any;
   Capteurpluie: any;
   getCapteurCo2: any;
+  getStatusmanuel: any;
+  getEtatBattrie: any;
+  getNpk :any;
   @ViewChild('inputManuel') inputManuel!: ElementRef;
   @ViewChild('inputAuto') inputAuto!: ElementRef;
   // public barChartLabels= ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
@@ -132,7 +135,11 @@ export class DashboardComponent implements OnInit {
       this.getHumidtySol();
       this.getWaterSensor();
       this.getCapteurpluie();
-      this.getcapteurCo2(); // get updated data every 5 seconds
+      this.getcapteurCo2();
+      this.getstatusManuel();
+      this.getetatBattrie(); 
+      this.getNpkk();
+      // get updated data every 5 seconds
     }, 1000);
  
 
@@ -264,6 +271,27 @@ getCapteurpluie() {
 getcapteurCo2() {
   this.http.get('api/getCapteurCo2/').subscribe((response : any ) => {
     this.getCapteurCo2 = response;
+  });
+
+
+}
+getstatusManuel() {
+  this.http.get('api/getStatusmanual/').subscribe((response : any ) => {
+    this.getStatusmanuel = response;
+  });
+
+
+}
+getetatBattrie() {
+  this.http.get('api/getEtatbattrie/').subscribe((response : any ) => {
+    this.getEtatBattrie = response;
+  });
+
+
+}
+getNpkk() {
+  this.http.get('api/getNpk/').subscribe((response : any ) => {
+    this.getNpk = response;
   });
 
 

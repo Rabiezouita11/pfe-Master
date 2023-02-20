@@ -10,6 +10,9 @@ const getMode = require("./firebase/getMode");
 const getHumiditySol = require("./firebase/getHumiditySol");
 const changeMode = require("./firebase/changerMode");
 const getCapteurCo2 = require("./firebase/getCapteurCo2");
+const getNpk = require("./firebase/getNpk");
+const getEtatbattrie = require("./firebase/getEtatbattrie");
+const getStatusmanual = require("./firebase/getStatusmanual");
 const getWaterSensor = require("./firebase/getWaterSensor");
 const authRouter = require("./routes/auth");
 const bodyParser = require("body-parser");
@@ -120,7 +123,22 @@ app.get("/getCapteurCo2/", function (req, res) {
   });
 });
 
+app.get("/getStatusmanual/", function (req, res) {
+  getStatusmanual.getStatusmanual(function (err,data) {
+    res.send(data);
+  });
+});
+app.get("/getEtatbattrie/", function (req, res) {
+  getEtatbattrie.getEtatbattrie(function (err,data) {
+    res.send(data);
+  });
+});
 
+app.get("/getNpk/", function (req, res) {
+  getNpk.getNpk(function (err,data) {
+    res.send(data);
+  });
+});
 
 // // how update data from firebase database
 // app.put("/updateData/", function (req, res) {
