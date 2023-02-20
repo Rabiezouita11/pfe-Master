@@ -3,7 +3,8 @@ var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
-
+const getDatafirebase = require("./firebase/getTime");
+const getTemperatureAir = require("./firebase/getTemperatureHumiditerAir");
 const authRouter = require("./routes/auth");
 const bodyParser = require("body-parser");
 const db = require("./models/index");
@@ -59,11 +60,16 @@ app.use("/auth", authRouter); //path postman : http://localhost:8080/auth/login
 //   );
 // });
 // how recupere data from firebase database
-// app.get("/getData/", function (req, res) {
-//   getDatafirebase.getData(function (err,data) {
-//     res.send(data);
-//   });
-// });
+app.get("/getTime/", function (req, res) {
+  getDatafirebase.getData(function (err,data) {
+    res.send(data);
+  });
+});
+app.get("/getTemperatureAir/", function (req, res) {
+  getTemperatureAir.getTemperatureAir(function (err,data) {
+    res.send(data);
+  });
+});
 
 // // how update data from firebase database
 // app.put("/updateData/", function (req, res) {
