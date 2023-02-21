@@ -366,6 +366,8 @@ PompeOff () {
     this.toastr.error('النظام حاليا غير متصل');
     return;
   }
+  this.dis  = false;
+  this.pompeTime = 0;
   let manual = {
     pompe: this.inputOFFpompe.nativeElement.value
   }
@@ -395,12 +397,18 @@ setTomate() {
   }
   let culture = {
     nom: 'Tomate',
-    n : '1',
-    p : '1',
-    k : '1',
-    humidity_air : '20',
-    temperature : '20',
-    humidity : '20'
+    maxHSol : '80',
+    minHSol : '60',
+    MaxH : '60',
+    MinH : '70',
+    MaxT : '30',
+    MinT : '20',
+    MaxN : '250',
+    MinN : '100',
+    MaxP : '150',
+    MinP : '50',
+    MaxK : '400',
+    MinK : '200',
   }
   this.http.put('api/SetNomCulture/', culture).subscribe((response: any) => {
     // Handle response
@@ -428,12 +436,18 @@ setPommeDeTerre() {
   }
   let culture = {
     nom: 'Pomme de terre',
-    n : '1',
-    p : '1',
-    k : '1',
-    humidity_air : '20',
-    temperature : '20',
-    humidity : '20'
+    MaxN : '200',
+    MinN : '150',
+    MaxP : '120',
+    MinP : '50',
+    MaxK : '400',
+    MinK : '250',
+    MaxH : '90',
+    MinH : '80',
+    MaxT : '20',
+    MinT : '15',
+    maxHSol : '70',
+    minHSol : '60',
   }
   this.http.put('api/SetNomCulture/', culture).subscribe((response: any) => {
     // Handle response
@@ -454,6 +468,12 @@ setPommeDeTerre() {
 
 
 PompeOn() {
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  if (isOffline) {
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
   // check if the pompeTime is greater than 0
   if (this.pompeTime > 0) {
     this.dis  = true;
@@ -465,12 +485,7 @@ PompeOn() {
       positionClass: 'toast-top-right',
     });
 
-    const isOffline = this.data.some((item: any) => item.status === 'System shut down');
-    if (isOffline) {
-      // Display error message if system is shut down
-      this.toastr.error('النظام حاليا غير متصل');
-      return;
-    }
+  
     
     let manual = {
       pompe: this.inputOnpompe.nativeElement.value

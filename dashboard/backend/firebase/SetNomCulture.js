@@ -1,32 +1,67 @@
 const firebase = require("./firebaseConfg.js");
 
-module.exports={
+module.exports = {
     setNomCultrue: (req, callback) => {
-            let nom = req.nom;
-            let n = req.n;
-            let p = req.p;
-            let k = req.k;
-            let humidity = req.humidity;
-            let temperature = req.temperature;
-            let humidity_air = req.humidity_air;
-            firebase.database().ref("culture/").update({
-                nom: nom
-            });
-            firebase.database().ref("culture/npk/").update({
-                n: n, 
-                p: p,
-                k: k
-            });
-            firebase.database().ref("culture/air/").update({
-              
-                humidity_air: humidity_air,
-                temperature: temperature
-            });
-            firebase.database().ref("culture/sol/").update({
-              
-                humidity: humidity,
-            });
+        let nom = req.nom;
+        let n = req.n;
+        let p = req.p;
+        let k = req.k;
+        let humidity = req.humidity;
+        let MaxT = req.MaxT;
+        let MinT = req.MinT;
+        let MaxH = req.MaxH;
+        let MinH = req.MinH;
 
-            callback (null, "Data updated successfully");
+
+
+
+        let MinN = req.MinN;
+        let MaxN = req.MaxN;
+
+        let MinP = req.MinP;
+        let MaxP = req.MaxP;
+
+        let MinK = req.MinK;
+        let MaxK = req.MaxK;
+
+
+        let maxHSol = req.maxHSol;
+        let minHSol = req.minHSol;
+
+
+        firebase.database().ref("culture/").update({
+            nom: nom
+        });
+        firebase.database().ref("culture/npk/n").update({
+            MaxN: MaxN,
+            MinN: MinN
+        });
+        firebase.database().ref("culture/npk/p").update({
+            MaxP: MaxP,
+            MinP: MinP
+        });
+        firebase.database().ref("culture/npk/k").update({
+            MaxK: MaxK,
+            MinK: MinK
+        });
+
+        firebase.database().ref("culture/air/temperature").update({
+
+            MaxT: MaxT,
+            MinT: MinT
+        });
+
+        firebase.database().ref("culture/air/humidity_air").update({
+
+            MaxH: MaxH,
+            MinH: MinH
+        });
+        firebase.database().ref("culture/sol/").update({
+
+            maxHSol : maxHSol,
+            minHSol : minHSol
+        });
+
+        callback(null, "Data updated successfully");
     }
 }

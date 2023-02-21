@@ -71,10 +71,8 @@ export class HeaderComponent implements OnInit {
 
     this.http.post('/api/auth/logout', {}, {withCredentials: true})
       .subscribe(() => this.authenticated = false);
-      this.router.navigate(['/accueil']  ).then(() => {
-        window.location.reload();
-      }
-      );
+      this.router.navigate(['/login']);
+    
 
 
   }
