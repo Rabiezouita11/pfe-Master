@@ -85,6 +85,7 @@ export class DashboardComponent implements OnInit {
   getEtatBattrie: any;
   getNpk :any;
   pompeTime: number = 0; 
+  nomcluture: any;
   @ViewChild('inputManuel') inputManuel!: ElementRef;
   @ViewChild('inputAuto') inputAuto!: ElementRef;
   @ViewChild('inputOnmoteur') inputOnmoteur!: ElementRef;
@@ -146,11 +147,18 @@ export class DashboardComponent implements OnInit {
       this.getstatusManuel();
       this.getetatBattrie(); 
       this.getNpkk();
+      this.getNomCulture();
       // get updated data every 5 seconds
     }, 1000);
  
 
    
+}
+getNomCulture(){
+  this.http.get('api/getNomCulture/').subscribe((response : any ) => {
+    this.nomcluture = response;
+    console.log(this.nomcluture);
+  });
 }
 
 getData() {
@@ -368,6 +376,39 @@ PompeOff () {
   // show toast message for switching  Off moteur
 
   this.toastr.error('Pompe OFF', 'Success',{
+    timeOut: 5000,
+    progressAnimation: 'increasing',
+    progressBar: true,
+    positionClass: 'toast-top-right',
+  });
+
+
+}
+
+
+setTomate() {
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  if (isOffline) {
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
+  let culture = {
+    nom: 'Tomate',
+    n : '1',
+    p : '1',
+    k : '1',
+    humidity_air : '20',
+    temperature : '20',
+    humidity : '20'
+  }
+  this.http.put('api/SetNomCulture/', culture).subscribe((response: any) => {
+    // Handle response
+  }
+  );
+  // show toast message for switching  Off moteur
+
+  this.toastr.success('Tomate', 'Success',{
     timeOut: 5000,
     progressAnimation: 'increasing',
     progressBar: true,

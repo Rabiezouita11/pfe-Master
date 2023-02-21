@@ -15,6 +15,8 @@ const changeEtatPompe = require("./firebase/changeEtatPompe");
 const changeventilateur = require("./firebase/changeEtatventilateur");
 const getCapteurCo2 = require("./firebase/getCapteurCo2");
 const getNpk = require("./firebase/getNpk");
+const getNomCulture = require("./firebase/getNomCulture");
+const SetNomCulture = require("./firebase/SetNomCulture");
 const getEtatbattrie = require("./firebase/getEtatbattrie");
 const getStatusmanual = require("./firebase/getStatusmanual");
 const getWaterSensor = require("./firebase/getWaterSensor");
@@ -122,6 +124,22 @@ app.put("/changeEtatventilateur/", function (req, res) {
   });
 });
 
+app.put ("/SetNomCulture/", function (req, res) {
+  SetNomCulture.setNomCultrue(req.body,function (err,data) {
+    if (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving notes.",
+      });
+    } else {
+      res.send(data);
+    }
+  });
+});
+app.get("/getNomCulture/", function (req, res) {
+  getNomCulture.getNomCulture(function (err,data) {
+    res.send(data);
+  });
+});
 
 
 app.put("/changeEtatMoteur/", function (req, res) {
