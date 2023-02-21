@@ -419,6 +419,40 @@ setTomate() {
 }
 
 
+setPommeDeTerre() {
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  if (isOffline) {
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
+  let culture = {
+    nom: 'Pomme de terre',
+    n : '1',
+    p : '1',
+    k : '1',
+    humidity_air : '20',
+    temperature : '20',
+    humidity : '20'
+  }
+  this.http.put('api/SetNomCulture/', culture).subscribe((response: any) => {
+    // Handle response
+  }
+  );
+  // show toast message for switching  Off moteur
+
+  this.toastr.success('Tomate', 'Success',{
+    timeOut: 5000,
+    progressAnimation: 'increasing',
+    progressBar: true,
+    positionClass: 'toast-top-right',
+  });
+
+
+}
+
+
+
 PompeOn() {
   // check if the pompeTime is greater than 0
   if (this.pompeTime > 0) {
