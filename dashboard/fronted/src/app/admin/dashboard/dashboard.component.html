@@ -113,7 +113,7 @@
                 <div class="card o-hidden widget-cards">
                     <div class="secondary-box card-body" *ngIf="mode?.etat == '1'" >
                       
-                        <button class="form-control btn btn-outline-success"  style="font-size: 20px;"  (click)="switchAutomatic()">تغيير النظام</button>
+                        <button class="form-control btn btn-outline-success"  style="font-size: 20px;"  (click)="switchAutomatic()"  data-bs-toggle="modal"  data-bs-target="#exampleModal" >تغيير النظام</button>
                         <h3 *ngIf="mode?.etat == '1'"  style="font-size: 20px;">وضع يدوي</h3>
                     </div>
                     <div class="secondary-box card-body" *ngIf="mode?.etat == '0'" >
@@ -151,14 +151,26 @@
               
             <img src="assets/moteur gif.gif" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.moteur == 'ON'"   >
             <img src="assets/moteurOff.PNG" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.moteur == 'OFF'"   >
-           <h3 class="mb-0" style="color:red; font-size: 40px;">{{getStatusmanuel?.moteur}}<small> </small> </h3>
+           <h3 class="mb-0" style="color:red; font-size: 40px;"> etat : {{getStatusmanuel?.moteur}}<small> </small> </h3>
+       
+          <button type="button" (click)="MoteurOff()"  *ngIf="mode?.etat == '1' && getStatusmanuel?.moteur == 'ON'"   class="btn btn-danger">OFF</button>
+          <button type="button" (click)="MoteurOn()"  *ngIf="mode?.etat == '1' && getStatusmanuel?.moteur == 'OFF'" class="btn btn-danger" style="color: rgb(17, 255, 9);" >ON</button>
 
+
+          <input type="hidden"  #inputOnmoteur value="ON">
+          <input type="hidden" #inputOFFmoteur value="OFF">
         </div>
         <div class="col-xxl-3 col-md-6 xl-50">
               
             <img src="assets/lampe OFF.jpg" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.led == 'ON'">
             <img src="assets/lampe On.jpg" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.led == 'OFF'">
            <h3 class="mb-0" style=" font-size: 40px;">{{getStatusmanuel?.led}}<small> </small> </h3>
+           <button type="button" (click)="LedOff()"  *ngIf="mode?.etat == '1' && getStatusmanuel?.led == 'ON'"   class="btn btn-success">OFF</button>
+           <button type="button" (click)="LedOn()"  *ngIf="mode?.etat == '1' && getStatusmanuel?.led == 'OFF'" class="btn btn-danger" style="color: red;" >ON</button>
+ 
+ 
+           <input type="hidden"  #inputOnled value="ON">
+           <input type="hidden" #inputOFFled value="OFF">
 
         </div>
 
@@ -168,7 +180,14 @@
             <img src="assets/pompe Off.PNG" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.pompe == 'OFF'">
           
            <h3 class="mb-0" style="color:red; font-size: 40px;">{{getStatusmanuel?.pompe}}<small> </small> </h3>
-
+           <input type="number" class="form-control" *ngIf="mode?.etat == '1' " [disabled]="dis"  [(ngModel)]="pompeTime" placeholder="Enter time in minutes">
+<br>
+           <button type="button" (click)="PompeOff()"  *ngIf="mode?.etat == '1' && getStatusmanuel?.pompe == 'ON'"   class="btn btn-success">OFF</button>
+           <button type="button" (click)="PompeOn()"  *ngIf="mode?.etat == '1' && getStatusmanuel?.pompe == 'OFF'" class="btn btn-danger" style="color: red;" >ON</button>
+ 
+ 
+           <input type="hidden"  #inputOnpompe value="ON">
+           <input type="hidden" #inputOFFpompe value="OFF">
         </div>
 
         <div class="col-xxl-3 col-md-6 xl-50">
@@ -176,7 +195,12 @@
             <img src="assets/ventilateur on.gif" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.ventilateur == 'ON'">
             <img src="assets/ventilateur Off.PNG" width="200px" height="200px" alt="" *ngIf="getStatusmanuel?.ventilateur == 'OFF'">
            <h3 class="mb-0" style="color:red; font-size: 40px;">{{getStatusmanuel?.ventilateur}}<small> </small> </h3>
-
+           <button type="button" (click)="VentilateurOff()"  *ngIf="mode?.etat == '1' && getStatusmanuel?.ventilateur == 'ON'"   class="btn btn-success">OFF</button>
+           <button type="button" (click)="VentilateurOn()"  *ngIf="mode?.etat == '1' && getStatusmanuel?.ventilateur == 'OFF'" class="btn btn-danger" style="color: red;" >ON</button>
+ 
+ 
+           <input type="hidden"  #inputOnventilateur value="ON">
+           <input type="hidden" #inputOFFventilateur value="OFF">
         </div>
         <div class="col-xxl-3 col-md-6 xl-50">
               
@@ -246,3 +270,22 @@
 
 </div>
 <!-- Container-fluid Ends-->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

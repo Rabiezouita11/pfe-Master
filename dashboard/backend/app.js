@@ -9,6 +9,10 @@ const getcapteurPluie = require("./firebase/getCapteurPluie");
 const getMode = require("./firebase/getMode");
 const getHumiditySol = require("./firebase/getHumiditySol");
 const changeMode = require("./firebase/changerMode");
+const changeEtatMoteur = require("./firebase/changeEtatMoteur");
+const changeEtatled = require("./firebase/changeEtatled");
+const changeEtatPompe = require("./firebase/changeEtatPompe");
+const changeventilateur = require("./firebase/changeEtatventilateur");
 const getCapteurCo2 = require("./firebase/getCapteurCo2");
 const getNpk = require("./firebase/getNpk");
 const getEtatbattrie = require("./firebase/getEtatbattrie");
@@ -82,6 +86,55 @@ app.get("/getTemperatureAir/", function (req, res) {
 app.get("/getMode/", function (req, res) {
   getMode.getMode(function (err,data) {
     res.send(data);
+  });
+});
+app.put("/changeEtatled/", function (req, res) {
+  changeEtatled.changeEtatled(req.body,function (err,data) {
+    if (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving notes.",
+      });
+    } else {
+      res.send(data);
+    }
+  });
+});
+app.put("/changeEtatPompe/", function (req, res) {
+  changeEtatPompe.updateEtatpompe(req.body,function (err,data) {
+    if (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving notes.",
+      });
+    } else {
+      res.send(data);
+    }
+  });
+});
+app.put("/changeEtatventilateur/", function (req, res) {
+  changeventilateur.updateEtatventilateur(req.body,function (err,data) {
+    if (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving notes.",
+      });
+    } else {
+      res.send(data);
+    }
+  });
+});
+
+
+
+app.put("/changeEtatMoteur/", function (req, res) {
+   
+  changeEtatMoteur.updateMoteur(req.body,function (err,data) {
+    if (err) {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving notes.",
+      });
+    } else {
+      res.send(data);
+    }
+
   });
 });
 app.put("/changeMode/", function (req, res) {

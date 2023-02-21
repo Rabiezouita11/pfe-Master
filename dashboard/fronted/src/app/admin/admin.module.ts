@@ -12,25 +12,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgChartsModule } from 'ng2-charts';
 
-import { EtatDeSerreComponent } from './etat-de-serre/etat-de-serre.component';
+import { StatistiqueComponent } from './statistique/statistique.component';
+import { DiffusiondirectComponent } from './diffusiondirect/diffusiondirect.component';
 @NgModule({
   declarations: [
-    
+
     ComponentComponent,
     HeaderComponent,
     FooterComponent,
     SidbarComponent,
     DashboardComponent,
-    
-
- 
-    EtatDeSerreComponent
+    StatistiqueComponent,
+    DiffusiondirectComponent
   ],
   exports: [HeaderComponent, FooterComponent],
-  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, FormsModule , NgChartsModule],
+  imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, FormsModule, NgChartsModule],
 })
 
 
 
 
-export class AdminModule {}
+export class AdminModule { }

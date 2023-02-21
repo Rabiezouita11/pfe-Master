@@ -76,6 +76,7 @@ export class DashboardComponent implements OnInit {
   temperatureAir: any;
   isOffline: boolean = false;
   mode :any;
+  dis : boolean = false;
   humiditySol :any;
   waterSensor :any;
   Capteurpluie: any;
@@ -83,11 +84,17 @@ export class DashboardComponent implements OnInit {
   getStatusmanuel: any;
   getEtatBattrie: any;
   getNpk :any;
+  pompeTime: number = 0; 
   @ViewChild('inputManuel') inputManuel!: ElementRef;
   @ViewChild('inputAuto') inputAuto!: ElementRef;
-  // public barChartLabels= ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
-  // public barChartData = {data: [70,80,90], label: 'IMC'};
-
+  @ViewChild('inputOnmoteur') inputOnmoteur!: ElementRef;
+  @ViewChild('inputOFFmoteur') inputOFFmoteur!: ElementRef;
+  @ViewChild('inputOnled') inputOnled!: ElementRef;
+  @ViewChild('inputOFFled') inputOFFled!: ElementRef;
+  @ViewChild('inputOnpompe') inputOnpompe!: ElementRef;
+  @ViewChild('inputOFFpompe') inputOFFpompe!: ElementRef;
+  @ViewChild('inputOnventilateur') inputOnventilateur!: ElementRef;
+  @ViewChild('inputOFFventilateur') inputOFFventilateur!: ElementRef;
   constructor(
     private toastr: ToastrService,
     private currentRoute: ActivatedRoute,
@@ -105,7 +112,7 @@ export class DashboardComponent implements OnInit {
       const time = new Date(item.time);
       const diff = now.getTime() - time.getTime();
       const seconds = Math.floor(diff / 1000);
-      if (seconds > 15) {
+      if (seconds > 10) {
         item.status = 'System shut down';
       }
       else  
@@ -237,6 +244,256 @@ switchManuel () {
   });
 }
 
+MoteurOff() {
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  if (isOffline) {
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
+  let manual = {
+    moteur: this.inputOFFmoteur.nativeElement.value
+  }
+  this.http.put('api/changeEtatMoteur/', manual).subscribe((response: any) => {
+    // Handle response
+  }
+  );
+  // show toast message for switching  Off moteur 
+  
+  this.toastr.error('Moteur OFF', 'Success',{
+    timeOut: 5000,
+    progressAnimation: 'increasing',
+    progressBar: true,
+    positionClass: 'toast-top-right',
+  });
+
+
+  
+
+}
+
+MoteurOn() {
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  if (isOffline) {
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
+  let manual = {
+    moteur: this.inputOnmoteur.nativeElement.value
+  }
+  this.http.put('api/changeEtatMoteur/', manual).subscribe((response: any) => {
+    // Handle response
+  }
+  );
+  // show toast message for switching  Off moteur 
+  
+  this.toastr.success('Moteur ON', 'Success',{
+    timeOut: 5000,
+    progressAnimation: 'increasing',
+    progressBar: true,
+    positionClass: 'toast-top-right',
+  });
+
+
+}
+
+LedOff () {
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  if (isOffline) {
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
+  let manual = {
+    led: this.inputOFFled.nativeElement.value
+  }
+  this.http.put('api/changeEtatled/', manual).subscribe((response: any) => {
+    // Handle response
+  }
+  );
+  // show toast message for switching  Off moteur
+
+  this.toastr.error('Led OFF', 'Success',{
+    timeOut: 5000,
+    progressAnimation: 'increasing',
+    progressBar: true,
+    positionClass: 'toast-top-right',
+  });
+
+
+}
+LedOn () {
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  if (isOffline) {
+
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
+  let manual = {
+    led: this.inputOnled.nativeElement.value
+  }
+  this.http.put('api/changeEtatled/', manual).subscribe((response: any) => {
+    // Handle response
+  }
+  );
+
+  // show toast message for switching  Off moteur
+
+  this.toastr.success('Led ON', 'Success',{
+    timeOut: 5000,
+    progressAnimation: 'increasing',
+    progressBar: true,
+    positionClass: 'toast-top-right',
+  });
+
+
+}
+
+PompeOff () {
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  if (isOffline) {
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
+  let manual = {
+    pompe: this.inputOFFpompe.nativeElement.value
+  }
+  this.http.put('api/changeEtatPompe/', manual).subscribe((response: any) => {
+    // Handle response
+  }
+  );
+  // show toast message for switching  Off moteur
+
+  this.toastr.error('Pompe OFF', 'Success',{
+    timeOut: 5000,
+    progressAnimation: 'increasing',
+    progressBar: true,
+    positionClass: 'toast-top-right',
+  });
+
+
+}
+
+
+PompeOn() {
+  // check if the pompeTime is greater than 0
+  if (this.pompeTime > 0) {
+    this.dis  = true;
+    // show toast message for switching On pompe
+    this.toastr.success('Pompe ON', 'Success', {
+      timeOut: 5000,
+      progressAnimation: 'increasing',
+      progressBar: true,
+      positionClass: 'toast-top-right',
+    });
+
+    const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+    if (isOffline) {
+      // Display error message if system is shut down
+      this.toastr.error('النظام حاليا غير متصل');
+      return;
+    }
+    
+    let manual = {
+      pompe: this.inputOnpompe.nativeElement.value
+    };
+
+    this.http.put('api/changeEtatPompe/', manual).subscribe((response: any) => {
+      // Handle response
+    });
+
+    // turn off the pump after the specified time
+    setTimeout(() => {
+      this.dis  = false;
+      this.PompeOff();
+    }, this.pompeTime * 60 * 1000); // convert minutes to milliseconds
+
+  } else {
+    // show error message if the pompeTime is not set
+    this.toastr.error('الرجاء إدخال وقت عمل المضخة.    ');
+  }
+}
+
+// PompeOn () {
+//   const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+//   if (isOffline) {
+//     // Display error message if system is shut down
+//     this.toastr.error('النظام حاليا غير متصل');
+//     return;
+//   }
+//   let manual = {
+//     pompe: this.inputOnpompe.nativeElement.value
+//   }
+
+//   this.http.put('api/changeEtatPompe/', manual).subscribe((response: any) => {
+//     // Handle response
+//   }
+//   );
+//   // show toast message for switching  Off moteur
+
+//   this.toastr.success('Pompe ON', 'Success',{
+//     timeOut: 5000,
+//     progressAnimation: 'increasing',
+//     progressBar: true,
+//     positionClass: 'toast-top-right',
+//   });
+
+
+// }
+VentilateurOff () {
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  if (isOffline) {
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
+  let manual = {
+    ventilateur: this.inputOFFventilateur.nativeElement.value
+  }
+  this.http.put('api/changeEtatVentilateur/', manual).subscribe((response: any) => {
+    // Handle response
+  }
+  );
+  // show toast message for switching  Off moteur
+
+  this.toastr.error('Ventilateur OFF', 'Success',{
+    timeOut: 5000,
+    progressAnimation: 'increasing',
+    progressBar: true,
+    positionClass: 'toast-top-right',
+  });
+
+
+}
+VentilateurOn () {
+  const isOffline = this.data.some((item: any) => item.status === 'System shut down');
+  if (isOffline) {
+    // Display error message if system is shut down
+    this.toastr.error('النظام حاليا غير متصل');
+    return;
+  }
+  let manual = {
+    ventilateur: this.inputOnventilateur.nativeElement.value
+  }
+  this.http.put('api/changeEtatVentilateur/', manual).subscribe((response: any) => {
+    // Handle response
+  }
+  );
+  // show toast message for switching  Off moteur
+
+  this.toastr.success('Ventilateur ON', 'Success',{
+    timeOut: 5000,
+    progressAnimation: 'increasing',
+    progressBar: true,
+    positionClass: 'toast-top-right',
+  });
+
+
+
+} 
 
 
 
@@ -296,5 +553,7 @@ getNpkk() {
 
 
 }
+
+
 
 }

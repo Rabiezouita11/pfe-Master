@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfileComponent } from './profile.component';
+import { DiffusiondirectComponent } from './diffusiondirect.component';
 
-describe('ProfileComponent', () => {
-  let component: ProfileComponent;
-  let fixture: ComponentFixture<ProfileComponent>;
+describe('DiffusiondirectComponent', () => {
+  let component: DiffusiondirectComponent;
+  let fixture: ComponentFixture<DiffusiondirectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ]
+      declarations: [ DiffusiondirectComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProfileComponent);
+    fixture = TestBed.createComponent(DiffusiondirectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

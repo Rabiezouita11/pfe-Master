@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EtatDeSerreComponent } from './etat-de-serre.component';
+import { StatistiqueComponent } from './statistique.component';
 
-describe('EtatDeSerreComponent', () => {
-  let component: EtatDeSerreComponent;
-  let fixture: ComponentFixture<EtatDeSerreComponent>;
+describe('StatistiqueComponent', () => {
+  let component: StatistiqueComponent;
+  let fixture: ComponentFixture<StatistiqueComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EtatDeSerreComponent ]
+      declarations: [ StatistiqueComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EtatDeSerreComponent);
+    fixture = TestBed.createComponent(StatistiqueComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
