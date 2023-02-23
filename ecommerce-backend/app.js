@@ -7,6 +7,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const PaimentClient = require("./routes/PaimentClient");
 const authRouter = require("./routes/auth");
+const abonnementRouter = require("./routes/abonnement");
 const shedule = require("node-schedule");
 const categorieRouter = require("./routes/categorie");
 const produitRouter = require("./routes/Produit");
@@ -82,7 +83,7 @@ app.use("/categories", categorieRouter); // http://localhost:8080/categories
 app.use("/produit", produitRouter); // http://localhost:8080/produit
 app.use("/panier", panierRouter); // http://localhost:8080/panier
 app.use("/quiz", quizRouter); // http://localhost:8080/quiz
-
+app.use("/abonnement", abonnementRouter); // http://localhost:8080/abonnement
 app.use("/promotion", promotionRouter); // http://localhost:8080/promotion
 app.use("/clientAdmin", clientAdmin); // http://localhost:8080/clientAdmin
 app.use("/ContactAdmin", contactAdmin); // http://localhost:8080/affichercontact")

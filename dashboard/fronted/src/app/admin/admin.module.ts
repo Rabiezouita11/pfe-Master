@@ -12,7 +12,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgChartsModule } from 'ng2-charts';
 
-import { StatistiqueComponent } from './statistique/statistique.component';
 import { DiffusiondirectComponent } from './diffusiondirect/diffusiondirect.component';
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { DiffusiondirectComponent } from './diffusiondirect/diffusiondirect.comp
     FooterComponent,
     SidbarComponent,
     DashboardComponent,
-    StatistiqueComponent,
     DiffusiondirectComponent
   ],
   exports: [HeaderComponent, FooterComponent],

@@ -20,7 +20,7 @@ db.user = require("./user.js")(sequelize, Sequelize);
 db.produit = require("./produit.js")(sequelize, Sequelize);
 db.coupon = require("./coupon.js")(sequelize, Sequelize);
 db.expererpanier = require("./expererpanier.js")(sequelize, Sequelize);
-
+db.abonnement = require("./abonnement.js")(sequelize, Sequelize);
 db.categorie = require("./categorie.js")(sequelize, Sequelize);
 db.adresse = require("./adresse.js")(sequelize, Sequelize);
 db.avis = require("./avis.js")(sequelize, Sequelize);
