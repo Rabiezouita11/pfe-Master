@@ -24,6 +24,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { AvisComponent } from './avis/avis.component';
 import { EtatDeSerreComponent } from './etat-de-serre/etat-de-serre.component';
 import { AbonnementComponent } from './abonnement/abonnement.component';
+import { AjouterAbonnementComponent } from './abonnement/ajouter-abonnement/ajouter-abonnement.component';
 @NgModule({
   declarations: [
     QuizComponent,
@@ -45,7 +46,8 @@ import { AbonnementComponent } from './abonnement/abonnement.component';
     ContactComponent,
     AvisComponent,
     EtatDeSerreComponent,
-    AbonnementComponent
+    AbonnementComponent,
+    AjouterAbonnementComponent
   ],
   exports: [HeaderComponent, FooterComponent],
   imports: [CommonModule, AdminRoutingModule, ReactiveFormsModule, FormsModule , NgChartsModule],

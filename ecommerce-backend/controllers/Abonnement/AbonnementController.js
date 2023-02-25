@@ -8,7 +8,7 @@ const { abonnement } = require("../../models");
 const ajouterAbonnement = async (req, res, next) => {
     try {
         const { nom, Prix, description } = req.body;
-        const image = req.body.image;
+        const image = req.files[0].path;
         abonnementdejaexiste = await abonnement.findOne({ where: { nom: nom } });
         if (abonnementdejaexiste) {
         return res.status(400).json({ error: "abonnement deja existe" });

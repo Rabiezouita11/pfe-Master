@@ -51,12 +51,12 @@ async function sendMail(email , link, nom) {
     secure: false, // true for 465, false for other ports
     auth: {
       user: "rabie.zouita@esprit.tn", // generated ethereal user
-      pass: "ba9arwechi13633840",
+      pass: "120997rabie120997",
     }
   });
 
   let mailOptions = {
-    from: 'TOP IN TECK', // sender address
+    from: 'AgroControl', // sender address
     to: email, // list of receivers
     subject: "mot de passe oublié 👻" , // Subject line 👻", // Subject line
     html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -506,7 +506,7 @@ async function sendMail(email , link, nom) {
                 <tr>
                   <td class="email-masthead">
                     <a href="http://localhost:4200/accueil" class="f-fallback email-masthead_name">
-                   Top in tech
+                   AgroControl
                   </a>
                   </td>
                 </tr>
@@ -519,7 +519,7 @@ async function sendMail(email , link, nom) {
                         <td class="content-cell">
                           <div class="f-fallback">
                             <h1>salut ${nom},</h1>
-                            <p>ous avez récemment demandé la réinitialisation de votre mot de passe pour votre compte top in tech. Utilisez le bouton ci-dessous pour le réinitialiser. <strong>Cette réinitialisation du mot de passe n'est valable que pour les 30 prochaines minutes.</strong></p>
+                            <p>ous avez récemment demandé la réinitialisation de votre mot de passe pour votre compte  AgroControl. Utilisez le bouton ci-dessous pour le réinitialiser. <strong>Cette réinitialisation du mot de passe n'est valable que pour les 30 prochaines minutes.</strong></p>
                             <!-- Action -->
                             <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                               <tr>
@@ -538,7 +538,7 @@ async function sendMail(email , link, nom) {
                             </table>
                             <p>Pour des raisons de sécurité, cette demande a été reçue d'un appareil {{operating_system}} utilisant {{browser_name}}. Si vous n'avez pas demandé de réinitialisation de mot de passe, veuillez ignorer cet e-mail ou <a href="{{support_url}}">contacter l'assistance</a> si vous avez des questions.</p>
                             <p>Merci,
-                              <br>The top in tech team</p>
+                              <br>The AgroControl Team</p>
                             <!-- Sub copy -->
                             <table class="body-sub" role="presentation">
                               <tr>

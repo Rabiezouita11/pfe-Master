@@ -9,16 +9,16 @@ const sendemail = async (req, res) => {
     port: 25,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "", // generated ethereal user
-      pass: "",
+      user: "rabie.zouita@esprit.tn", // generated ethereal user
+      pass: "120997rabie120997",
     },
   });
   const mailOptions = {
-    from: "rabie zouita", // sender address
+    from: "AgroControl", // sender address
     to: email.email, // list of receivers
-    subject: "Wellcome from TO IN TECH 👻", // Subject line
+    subject: "Bienvenue de AgroControl 👻", // Subject line
     html: `<h1>Hi ${email.nom}</h1><br>
-    <h4>Thanks for joining us</h4>`, // html body
+    <h4>Merci de vous joindre a nous</h4>`, // html body
   };
   transporter.sendMail(mailOptions, (err, data) => {
     if (err) {

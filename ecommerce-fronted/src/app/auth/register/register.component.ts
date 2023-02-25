@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   @ViewChild('inputPrenom') inputPrenom!: ElementRef;
   @ViewChild('inputnom') inputnom!: ElementRef;
   @ViewChild('inputEmail') inputEmail!: ElementRef;
+  @ViewChild('inputRole') inputRole!: ElementRef;
 
   form: FormGroup = new FormGroup({
     nom: new FormControl(''),
@@ -32,6 +33,7 @@ export class RegisterComponent implements OnInit {
     cin: new FormControl(''),
     image: new FormControl(''),
     email: new FormControl(''),
+    Role: new FormControl(''),
   });
   submitted = false;
   constructor(
@@ -54,6 +56,7 @@ export class RegisterComponent implements OnInit {
       // check if the email is  jpg or png or jpeg or gif or svg
       image: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
+      Role: [null, [Validators.required]],
     });
   }
   get f(): { [key: string]: AbstractControl } {
@@ -98,6 +101,8 @@ export class RegisterComponent implements OnInit {
         const dd = this.inputnom.nativeElement.value;
 
         const ee = this.inputEmail.nativeElement.value;
+          
+        const ff = this.inputRole.nativeElement.value;
 
         const formData = new FormData();
 
@@ -106,6 +111,7 @@ export class RegisterComponent implements OnInit {
         formData.set('email', ee);
         formData.set('mot_de_passe', bb);
         formData.set('cin', aa);
+        formData.set('role', ff);
         formData.set('image', imaheblob);
         console.log(formData.get('image'));
 

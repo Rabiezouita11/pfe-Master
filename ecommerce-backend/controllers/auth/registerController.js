@@ -13,7 +13,7 @@ const register = async (req, res, next) => {
       mot_de_passe: hashedPassword,
       nom: req.body.nom,
       prenom: req.body.prenom,
-      role: "user",
+      role: req.body.role,
       // how to get the image from the front end in the back end ?
       image: req.file.path,
     })
