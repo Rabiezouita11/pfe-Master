@@ -9,7 +9,7 @@ const sendemail = async (req, res) => {
     port: 25,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: ", // generated ethereal user
+      user: "", // generated ethereal user
       pass: "",
     },
   });
