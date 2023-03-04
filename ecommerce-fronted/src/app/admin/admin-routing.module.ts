@@ -24,6 +24,7 @@ import { AvisComponent } from './avis/avis.component';
 import { EtatDeSerreComponent } from './etat-de-serre/etat-de-serre.component';
 import { AbonnementComponent } from './abonnement/abonnement.component';
 import { AjouterAbonnementComponent } from './abonnement/ajouter-abonnement/ajouter-abonnement.component';
+import { ListeDemandeAbonnementComponent } from './liste-demande-abonnement/liste-demande-abonnement.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,10 @@ const routes: Routes = [
   { path: 'etat_de_serreIntellegent', component: EtatDeSerreComponent , data: {title: 'Administrateur'}},
   { path: 'AjouterAbonnement', component: AjouterAbonnementComponent , data: {title: 'Product'} },
   { path: 'Abonnement', component: AbonnementComponent , data: {title: 'Product'} },
+  { path: 'ListDedemandeAbonnement', component: ListeDemandeAbonnementComponent , data: {title: 'Product'} },
+
+
+  
   { path: 'Listproduct', component: ProductComponent , data: {title: 'Product'} },
   { path: 'ajouterProduit', component: AjouterProductComponent , data: {title: 'Product'} },
   { path: 'UpdateProduct', component: UpdateProductComponent , data: {title: 'Product'} },

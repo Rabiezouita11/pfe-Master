@@ -40,6 +40,12 @@ db.imageProduit = require("./imageProduit.js")(sequelize, Sequelize);
 // releation entre produit et image produit
 
 
+db.ListDemandeAbonnement.belongsTo(db.user, {
+  foreignKey: "id_user",
+});
+db.ListDemandeAbonnement.belongsTo(db.abonnement, {
+  foreignKey: "id_abonnement",
+});
 
 
 db.like.belongsTo(db.user, {

@@ -11,7 +11,7 @@ router.get('/afficherAbonnement/:id', Abonnement.getAbonnementById); // http://l
 
 router.post('/ajouterIduserandidabonnement', Abonnement.ajouterIduserandidabonnement); // http://localhost:8080/abonnement/ajouterIduserandidabonnement
 
-
+router.get('/showUserAbonnementDemande', Abonnement.xx); // http://localhost:8080/abonnement/xx
 
 
 module.exports = router;

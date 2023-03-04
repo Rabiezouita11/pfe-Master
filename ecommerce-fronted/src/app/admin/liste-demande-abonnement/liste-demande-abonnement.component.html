@@ -1,1 +1,90 @@
-<p>liste-demande-abonnement works!</p>
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-header-left">
+                    <h3>Demande de Abonnment List
+                        <small>Multikart Admin panel</small>
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ol class="breadcrumb pull-right">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">
+                            <i data-feather="home"></i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">List de Demande Abonnment</li>
+                    <li class="breadcrumb-item active">Abonnment List</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->
+
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <div class="form-group">
+
+
+                    </div>
+
+
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive table-desi">
+                        <table class="table all-package" id="editableTable">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>nom Agriculteur</th>
+                                    <th>nom Abonnement</th>
+                                    <th>Prix Abonnement</th>
+                                    <th>status</th>
+                                    <th>action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr *ngFor="let items of listDemandeabonement">
+                                    <td> {{items.id}}</td>
+                                    <td> {{items.user.nom}}</td>
+                                    <td> {{items.Abonnement.nom}}</td>
+                                    <td> {{items.Abonnement.Prix}}</td>
+                                    <td class="order-success">
+                                        <span> {{items.status}}</span>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-success">Accepter</button>
+                                            &nbsp;
+                                            &nbsp;
+                                            &nbsp;
+                                            
+                                            <button type="button" class="btn btn-danger">Refuser</button>
+
+                                        </div>
+
+                                    </td>
+                                    &nbsp;
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                        <div *ngIf="listDemandeabonement?.length==0" class="text-center">
+                            <h3 style="text-align:center ; color: red;">No Data Found</h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
