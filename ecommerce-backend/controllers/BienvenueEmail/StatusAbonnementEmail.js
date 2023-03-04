@@ -7,8 +7,8 @@ const StatusAbonnementEmail = (email ) => {
     port: 25,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "rabie.zouita@esprit.tn", // generated ethereal user
-      pass: "120997rabie120997",
+      user: "", // generated ethereal user
+      pass: "",
     },
   });
   const mailOptions = {
