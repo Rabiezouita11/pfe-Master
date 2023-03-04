@@ -17,6 +17,7 @@ const SCRIPT_PATH_LIST = ['assets/client/js/script.js'];
 })
 export class DashboardComponent implements OnInit {
   message!: number;
+  listabonement: any;
   api = 'http://localhost:3000/';
   list: any;
   ListCategorie: any;
@@ -79,6 +80,11 @@ export class DashboardComponent implements OnInit {
         Emitters.authEmitter.emit(false);
       }
     );
+    this.http.get('api/abonnement/afficherAllAbonnement').subscribe(
+      (data:any)=>{
+        this.listabonement=data;
+      }
+    )
   }
 
   showallCat() {

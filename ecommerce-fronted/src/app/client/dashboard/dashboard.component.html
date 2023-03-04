@@ -94,24 +94,15 @@
           <div class="tab-content-cls">
             <div id="tab-4" class="tab-content active default">
               <div class="no-slider row">
-                <div class="product-box"    *ngFor="let item of list" >
+                <div class="product-box"    *ngFor="let item of listabonement" >
                   <div class="img-wrapper">
                     <div class="front">
-                      <a [routerLink]="['/singleProduct/',item.id ]"><img
+                      <a [routerLink]="['/singleAbonnement/',item.id ]"><img
                         [src]="api+item.image" [width]="400" [height]="400"
                         class="img-fluid blur-up lazyload bg-img"    alt=""></a>
                     </div>
 
-                    <div class="cart-info cart-wrap">
-                      <button  (click)="ajouterPanier(message,item.id,item.prix)"
-                              title="Add to cart"><i class="ti-shopping-cart"></i></button> <a
-                      href="javascript:void(0)" title="Add to Wishlist"><i
-                      class="ti-heart" aria-hidden="true"></i></a> <a href="#"
-                                                                      data-bs-toggle="modal" data-bs-target="#quick-view"
-                                                                      title="Quick View"><i class="ti-search" aria-hidden="true"></i></a>
-                      <a href="compare.html" title="Compare"><i class="ti-reload"
-                                                                aria-hidden="true"></i></a>
-                    </div>
+                 
                   </div>
                   <div class="product-detail">
                     <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
@@ -120,7 +111,7 @@
                     <a href="product-page(no-sidebar).html">
                       <h6>{{item.nom}}</h6>
                     </a>
-                    <h4>{{item.prix}}TND /Moins</h4>
+                    <h4>{{item.Prix}}TND /Moins</h4>
                     <ul class="color-variant">
                       <li class="bg-light0"></li>
                       <li class="bg-light1"></li>

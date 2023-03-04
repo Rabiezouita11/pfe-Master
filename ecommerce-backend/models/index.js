@@ -30,7 +30,7 @@ db.contact = require("./contact.js")(sequelize, Sequelize);
 db.historique = require("./historique.js")(sequelize, Sequelize);
 db.livreur = require("./livreur.js")(sequelize, Sequelize);
 db.panier = require("./panier.js")(sequelize, Sequelize);
-
+db.ListDemandeAbonnement = require("./ListAbonnmentdemande.js")(sequelize, Sequelize);
 db.like = require("./like.js")(sequelize, Sequelize);
 db.quiz = require("./quiz.js")(sequelize, Sequelize);
 db.rate = require("./rate.js")(sequelize, Sequelize);
@@ -38,6 +38,9 @@ db.reponse = require("./reponse.js")(sequelize, Sequelize);
 db.imageProduit = require("./imageProduit.js")(sequelize, Sequelize);
 
 // releation entre produit et image produit
+
+
+
 
 db.like.belongsTo(db.user, {
   foreignKey: "id_user",

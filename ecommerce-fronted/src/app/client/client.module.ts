@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChangermotdepaseeComponent } from './changermotdepasee/changermotdepasee.component';
 import { ReponseComponent } from './quiz/reponse/reponse.component';
 import { OrderComponent } from './checkout/order/order.component';
+import { SinglePageAbonnementComponent } from './single-page-abonnement/single-page-abonnement.component';
 
 
 
@@ -55,6 +56,7 @@ import { OrderComponent } from './checkout/order/order.component';
         ChangermotdepaseeComponent,
         ReponseComponent,
         OrderComponent,
+        SinglePageAbonnementComponent,
         
   ],
   providers: [DatePipe],

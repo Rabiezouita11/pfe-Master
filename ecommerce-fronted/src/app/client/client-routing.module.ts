@@ -18,6 +18,7 @@ import { GuardGuard } from '../auth/guard/guard.guard';
 import { ChangermotdepaseeComponent } from './changermotdepasee/changermotdepasee.component';
 import { ReponseComponent } from './quiz/reponse/reponse.component';
 import { OrderComponent } from './checkout/order/order.component';
+import { SinglePageAbonnementComponent } from './single-page-abonnement/single-page-abonnement.component';
 
 
 
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'singelCategorie/:id', component: SingleCategorieComponent, data: {title: 'accueil'}},
   { path: 'singleProduct/:id', component: SinglepageProductComponent, data: {title: 'accueil'}},
   { path: 'Quiz/:id', component:ReponseComponent , data: {title: 'accueil'}},
+  { path: 'singleAbonnement/:id', component: SinglePageAbonnementComponent, data: {title: 'accueil'}},
 
   { path: 'quiz', component: QuizComponent, data: {title: 'accueil'} , canActivate : [GuardGuard]},
   { path: 'adresse', component: AdresseComponent, data: {title: 'accueil'}, canActivate : [GuardGuard]},

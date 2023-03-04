@@ -1,7 +1,40 @@
-const { abonnement } = require("../../models");
+const { user ,abonnement , ListDemandeAbonnement} = require("../../models");
+const {StatusAbonnementEmail} = require("../BienvenueEmail/StatusAbonnementEmail");
 
 
+const  ajouterIduserandidabonnement = async (req, res, next) => {
+    try {
+        const { id_user, id_abonnement } = req.body;
+        const idUserExisteDansUser = await user.findOne({ where: { id: id_user } });
+        const idAbonnementExisteDansAbonnement = await abonnement.findOne({ where: { id: id_abonnement } });
+        const idUserExisteDansListDemandeAbonnement = await ListDemandeAbonnement.findOne({ where: { id_user: id_user } });
+        const email = await user.findOne({ where: { id: id_user } });
+     
+        if (!idUserExisteDansUser) {
+            return res.status(400).json({ error: "id user n'existe pas" });
+        }
+        if (!idAbonnementExisteDansAbonnement) {
+            return res.status(400).json({ error: "id abonnement n'existe pas" });
+        }
+        if (idUserExisteDansListDemandeAbonnement) {
+            return res.status(400).json({ error: "id user existe deja dans la liste des abonnements" });
+        }
+        
 
+        const newAbonnement = await ListDemandeAbonnement.create({
+            id_user,
+            id_abonnement,
+        });
+        if (newAbonnement) {
+           StatusAbonnementEmail(email.email);
+            return res.status(201).json(newAbonnement);
+            
+        }
+    } catch (error) {
+    console.log(error.message)
+        
+    }
+    };
 
 
 
@@ -79,11 +112,38 @@ const ajouterAbonnement = async (req, res, next) => {
     };
 
 
+
+    const getAbonnementById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const abonnements = await abonnement.findOne({ where: { id: id } });
+        
+        if (abonnements) {
+        return res.status(200).json(abonnements);
+        }else{
+            return res.status(400).json({error:"abonnement not found"})
+        }
+    } catch (error) {
+        console.log(error.message);
+    }
+
+  
+    };
+
+
+
+    
+
+    
+
+
     module.exports = {
     ajouterAbonnement,
     afficherAllAbonnement,
     deleteAbonnement,
-    updateAbonnement
+    updateAbonnement,
+    getAbonnementById,
+    ajouterIduserandidabonnement
     };
 
     

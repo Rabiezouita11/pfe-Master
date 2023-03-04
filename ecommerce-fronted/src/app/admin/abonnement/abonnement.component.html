@@ -15,7 +15,7 @@
               <i data-feather="home"></i>
             </a>
           </li>
-          <li class="breadcrumb-item">Abonnment</li>
+          <li class="breadcrumb-item">Gestion Abonnment</li>
           <li class="breadcrumb-item active">Abonnment List</li>
         </ol>
       </div>
@@ -30,11 +30,13 @@
     <div class="col-sm-12">
       <div class="card">
         <div class="card-header">
-          <form class="form-inline search-form search-box">
+      
             <div class="form-group">
-              <input class="form-control-plaintext" type="search" placeholder="Search..">
+           
+              <a routerLink="/AjouterAbonnement" class="btn btn-primary mt-md-0 mt-2">Add New
+                Abonnement</a>
             </div>
-          </form>
+      
 
         </div>
         <div class="card-body">
@@ -44,33 +46,41 @@
               <tr>
                 <th>id</th>
                 <th>nom</th>
-                <th>Packs</th>
-              
-                <th>Status</th>
+                <th>image</th>
+                <th>Prix</th>
+                <th>description</th>
                 <th>action</th>
               </tr>
               </thead>
 
-              <tbody>
-              <tr>
-                <td> 1</td>
-                <td>Amine</td>
-                <td> Pack de Base</td>
-                <td> En cours </td>
+              <tbody >
+              <tr *ngFor="let items of listabonement"  >
+                <td> {{items.id}}</td>
+                <td> {{items.nom}}</td>
+                <td>  <img src="/api/{{items.image}}"
+                  data-field="image" width="50px" height="50px" alt="">  </td>
+                <td>  {{items.Prix}}  TND</td>
+                <td>  {{items.description}} </td>
                 <td>
 
+                  <a   [routerLink]="['/category/update/',items.id]"   >
+                    <i class="fa fa-edit text-success  p-1" style="font-size: x-large;"  title="Edit"></i>
+                  </a> 
+                
 
-
-                  <button     type="submit"    class="form-control"    style="background-color: green;" >accepter</button>
-                  <button     type="submit"    class="form-control"    style="background-color: red;" >Refuser</button>
- 
-                 </td>
+                  <a  (click)="delete(items.id)">
+                    <i class="fa fa-trash text-danger p-1" style="font-size: x-large;" title="Delete"></i>
+                  </a>
+                </td>
  &nbsp;
               </tr>
 
 
               </tbody>
             </table>
+            <div  *ngIf="listabonement?.length==0" class="text-center" >
+              <h3  style="text-align:center ; color: red;">No Data Found</h3>
+
           </div>
         </div>
       </div>
