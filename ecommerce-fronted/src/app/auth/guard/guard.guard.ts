@@ -16,7 +16,7 @@ export class GuardGuard implements CanActivate {
 
       this.http.get('/api/auth/getUser', {withCredentials: true}).subscribe(
         (res: any) => {
-         if (res.role === 'user') {
+         if (res.role === 'user' || res.role === 'Agriculteur') {
            return true;
          }else {
            this.router.navigate(['/dashboard']);

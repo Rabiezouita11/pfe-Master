@@ -1,6 +1,7 @@
 const { user, abonnement, ListDemandeAbonnement } = require("../../models");
 const { StatusAbonnementEmail } = require("../BienvenueEmail/StatusAbonnementEmail");
-
+const { accepteAbonnement } = require("../BienvenueEmail/accepteAbonnement");
+const { RefuserAbonnement } = require("../BienvenueEmail/refuserAbonnement");
 
 const ajouterIduserandidabonnement = async (req, res, next) => {
     try {
@@ -143,9 +144,13 @@ const xx = async (req, res, next) => {
                     attributes: ["nom"],
                 },
                 {
+                    model: user,
+                    attributes: ["id"],
+                },
+                {
                     model: abonnement,
-                   
-                   attributes: ["Prix"],
+
+                    attributes: ["Prix"],
                 },
 
                 {
@@ -163,8 +168,57 @@ const xx = async (req, res, next) => {
 };
 
 
+const UpdateStatusAcepteAbonnement = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { id_user } = req.body;
+        const findUser = await user.findOne({ where: { id: id_user } });
+        // updated table user attribut agri = true 
 
 
+        const updateabonnement = await ListDemandeAbonnement.update(
+            {
+                status: "accepte",
+            },
+            { where: { id: id } }
+        );
+        if (updateabonnement) {
+            const updateuser = await user.update(
+                {
+                    agri: "true",
+                },
+                { where: { id: id_user } }
+            );
+            accepteAbonnement(findUser.email, findUser.nom);
+            return res.status(200).json({ message: "abonnement updated" });
+        }
+    } catch (error) {
+        console.log(error.message);
+    }
+};
+
+
+
+
+const UpdateStatusRefuserAbonnement = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const { id_user } = req.body;
+        const findUser = await user.findOne({ where: { id: id_user } });
+        const updateabonnement = await ListDemandeAbonnement.update(
+            {
+                status: "refuser",
+            },
+            { where: { id: id } }
+        );
+        if (updateabonnement) {
+            RefuserAbonnement(findUser.email, findUser.nom);
+            return res.status(200).json({ message: "abonnement updated" });
+        }
+    } catch (error) {
+        console.log(error.message);
+    }
+};
 
 
 
@@ -176,8 +230,10 @@ module.exports = {
     deleteAbonnement,
     updateAbonnement,
     getAbonnementById,
-    ajouterIduserandidabonnement ,
-    xx
+    ajouterIduserandidabonnement,
+    xx,
+    UpdateStatusAcepteAbonnement,
+    UpdateStatusRefuserAbonnement
 };
 
 

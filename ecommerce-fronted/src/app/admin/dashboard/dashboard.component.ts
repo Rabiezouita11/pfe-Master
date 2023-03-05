@@ -88,6 +88,7 @@ export class DashboardComponent implements OnInit {
   public barChartLegend = true;
   chart: any;
   numConnectedClients: any;
+  message: any;
 
   // public barChartLabels= ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
   // public barChartData = {data: [70,80,90], label: 'IMC'};
@@ -106,7 +107,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit( ) {
     
-
  
  
         // refresh the chart every 5 seconds 

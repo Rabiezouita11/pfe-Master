@@ -1,50 +1,54 @@
-  <!-- Page Sidebar Start-->
+<!-- Page Sidebar Start-->
 
-    <div class="main-header-left d-none d-lg-block">
-        <div class="logo-wrapper">
-            <br>
-            <br>
-            <a href="index.html">
-                <img class="d-none d-lg-block blur-up lazyloaded "src="assets/rabie.png" width="400px" height="200px" alt="">
-            </a>
+<div class="main-header-left d-none d-lg-block">
+    <div class="logo-wrapper">
+        <br>
+        <br>
+        <a href="index.html">
+            <img class="d-none d-lg-block blur-up lazyloaded " src="assets/rabie.png" width="400px" height="200px"
+                alt="">
+        </a>
+    </div>
+</div>
+<div class="sidebar custom-scrollbar">
+    <a href="javascript:void(0)" class="sidebar-back d-lg-none d-block"><i class="fa fa-times"
+            aria-hidden="true"></i></a>
+    <div class="sidebar-user">
+        <img class="img-60" src="assets/admin/images/Rabii%20Zouita.jpg" alt="#">
+        <div>
+            <h6 *ngIf="message == 'admin'" class="f-14">Rabie Zouita</h6>
+            <p *ngIf="message == 'admin'">general manager.</p>
+            <p *ngIf="message == 'Agriculteur'">Agriculteur.</p>
+
+
         </div>
     </div>
-    <div class="sidebar custom-scrollbar">
-        <a href="javascript:void(0)" class="sidebar-back d-lg-none d-block"><i class="fa fa-times"
-                aria-hidden="true"></i></a>
-        <div class="sidebar-user">
-            <img class="img-60" src="assets/admin/images/Rabii%20Zouita.jpg" alt="#">
-            <div>
-                <h6 class="f-14">Rabie Zouita</h6>
-                <p>general manager.</p>
-            </div>
-        </div>
-        <ul class="sidebar-menu">
-            <li>
-                <a class="sidebar-header" routerLink="dashboard"  >
-                    <i data-feather="home"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a class="sidebar-header" routerLink="etat_de_serreIntellegent"  >
-                    <i data-feather="home"></i>
-                    <span>Etat de serre</span>
-                </a>
-            </li>
-            <li>
-                <a class="sidebar-header" routerLink="ListDedemandeAbonnement"  >
-                    <i data-feather="home"></i>
-                    <span>List demande Abonnement</span>
-                </a>
-            </li>
-            <li>
-                <a class="sidebar-header" routerLink="Abonnement"  >
-                    <i data-feather="home"></i>
-                    <span>Gestion  Abonnement</span>
-                </a>
-            </li>
-            <!-- <li>
+    <ul class="sidebar-menu">
+        <li *ngIf="message == 'admin'" >
+            <a class="sidebar-header" routerLink="dashboard">
+                <i data-feather="home"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li *ngIf="message == 'admin'">
+            <a class="sidebar-header" routerLink="etat_de_serreIntellegent">
+                <i data-feather="home"></i>
+                <span>Etat de serre</span>
+            </a>
+        </li>
+        <li *ngIf="message == 'admin'">
+            <a class="sidebar-header" routerLink="ListDedemandeAbonnement">
+                <i data-feather="home"></i>
+                <span>List demande Abonnement</span>
+            </a>
+        </li>
+        <li *ngIf="message == 'admin'">
+            <a class="sidebar-header" routerLink="Abonnement">
+                <i data-feather="home"></i>
+                <span>Gestion Abonnement</span>
+            </a>
+        </li>
+        <li *ngIf="message == 'Agriculteur'">
                 <a class="sidebar-header" routerLink="Listproduct">
                     <i data-feather="box"></i>
                     <span>Produit</span>
@@ -52,19 +56,19 @@
                 </a>
 
 
-            </li> -->
-                <li>
-                <a class="sidebar-header" routerLink="avisAdmin">
-                    <i data-feather="box"></i>
-                    <span>Avis</span>
-
-                </a>
-
-
             </li>
+        <li *ngIf="message == 'admin'" >
+            <a class="sidebar-header" routerLink="avisAdmin">
+                <i data-feather="box"></i>
+                <span>Avis</span>
+
+            </a>
 
 
-          <!-- <li>
+        </li>
+
+
+        <li *ngIf="message == 'Agriculteur'">
             <a class="sidebar-header" routerLink="category">
               <i data-feather="box"></i>
               <span>Category</span>
@@ -72,60 +76,60 @@
             </a>
 
 
-          </li> -->
+          </li>
 
-            <li>
-                <a class="sidebar-header" routerLink="ListQuiz" >
-                    <i data-feather="archive"></i>
-                    <span>Quiz</span>
+        <li *ngIf="message == 'admin'">
+            <a class="sidebar-header" routerLink="ListQuiz">
+                <i data-feather="archive"></i>
+                <span>Quiz</span>
 
-                </a>
+            </a>
 
 
-            </li>
+        </li>
 
-            <li>
-                <a class="sidebar-header" routerLink="listPromotion">
-                    <i data-feather="dollar-sign"></i>
-                    <span>Promotion</span>
+        <li *ngIf="message == 'admin'">
+            <a class="sidebar-header" routerLink="listPromotion">
+                <i data-feather="dollar-sign"></i>
+                <span>Promotion</span>
 
-                </a>
+            </a>
 
-            </li>
+        </li>
 
-            <li>
-                <a class="sidebar-header" routerLink="/client">
-                    <i data-feather="tag"></i>
-                    <span>Client</span>
+        <li *ngIf="message == 'admin'">
+            <a class="sidebar-header" routerLink="/client">
+                <i data-feather="tag"></i>
+                <span>Client</span>
 
-                </a>
+            </a>
 
-            </li>
+        </li>
 
-            <li>
-                <a class="sidebar-header" routerLink="/Commande">
-                    <i data-feather="clipboard"></i>
-                    <span>Commande</span>
+        <li *ngIf="message == 'admin'">
+            <a class="sidebar-header" routerLink="/Commande">
+                <i data-feather="clipboard"></i>
+                <span>Commande</span>
 
-                </a>
+            </a>
 
-            </li>
+        </li>
 
-            <li>
-                <a class="sidebar-header" routerLink="/listlivreur">
-                    <i data-feather="camera"></i>
-                    <span>Livreur</span>
-                </a>
-            </li>
+        <li *ngIf="message == 'admin'">
+            <a class="sidebar-header" routerLink="/listlivreur">
+                <i data-feather="camera"></i>
+                <span>Livreur</span>
+            </a>
+        </li>
 
-            <li>
-                <a class="sidebar-header" routerLink="/Contact">
-                    <i data-feather="align-left"></i>
-                    <span>Contacts</span>
+        <li *ngIf="message == 'admin'">
+            <a class="sidebar-header" routerLink="/Contact">
+                <i data-feather="align-left"></i>
+                <span>Contacts</span>
 
-                </a>
+            </a>
 
-            </li>
+        </li>
 
-        </ul>
-    </div>
+    </ul>
+</div>

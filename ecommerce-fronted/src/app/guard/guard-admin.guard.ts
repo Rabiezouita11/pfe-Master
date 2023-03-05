@@ -17,7 +17,7 @@ export class GuardAdminGuard implements CanActivate {
       this.http.get('/api/auth/getUser', {withCredentials: true}).subscribe(
 
         (res: any) => {
-         if (res.role === 'admin') {
+         if (res.role === 'admin' || res.agri === 'true') {
            return true;
 
          }else {

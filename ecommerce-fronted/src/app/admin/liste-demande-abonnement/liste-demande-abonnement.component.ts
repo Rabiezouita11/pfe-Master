@@ -20,5 +20,28 @@ export class ListeDemandeAbonnementComponent implements OnInit {
       }
     ) 
   }
+  Accepter(id:number, id_user:number){
+    this.http.put('api/abonnement/UpdateStatusAccepterAbonnement/'+id,{id_user}).subscribe(
+      (data:any)=>{
+        this.toastr.success('Demande acceptée avec succès');
+        this.ngOnInit();
+      }
+    )
+
+  }
+  Refuser(id:number, id_user:number){
+    this.http.put('api/abonnement/UpdateStatusRefuserAbonnement/'+id,{id_user}).subscribe(
+      (data:any)=>{
+        this.toastr.success('Demande refusée avec succès');
+        this.ngOnInit();
+      }
+    )
+
+
+  
+  }
 
 }
+
+
+

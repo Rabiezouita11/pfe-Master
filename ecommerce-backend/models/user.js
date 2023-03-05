@@ -42,6 +42,11 @@ module.exports = (sequelize, Sequelize) => {
             type:Sequelize.STRING,
             allowNull: true,
         },
+        agri:{
+            type:Sequelize.STRING,
+            allowNull: true,
+            defaultValue: 'false',
+        },
     },
     {
         timestamps: false

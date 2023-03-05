@@ -17,7 +17,7 @@ export class GuardloginGuard implements CanActivate {
         (res: any) => {
          if (res.length === 0) {
            return true;
-         }else if (res.role === 'user') {
+         }else if (res.role === 'user' && res.role === 'Agriculteur') {
           this.router.navigate(['/accueil']);
            return false;
          }else {

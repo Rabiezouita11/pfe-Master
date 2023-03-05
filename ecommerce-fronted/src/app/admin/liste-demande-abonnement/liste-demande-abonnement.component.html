@@ -56,19 +56,20 @@
                                 <tr *ngFor="let items of listDemandeabonement">
                                     <td> {{items.id}}</td>
                                     <td> {{items.user.nom}}</td>
+                                  
                                     <td> {{items.Abonnement.nom}}</td>
-                                    <td> {{items.Abonnement.Prix}}</td>
+                                    <td> {{items.Abonnement.Prix}} TND</td>
                                     <td class="order-success">
                                         <span> {{items.status}}</span>
                                     </td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button type="button" class="btn btn-success">Accepter</button>
+                                            <button type="button" class="btn btn-success" *ngIf="items.status == 'en attente'"  (click)="Accepter(items.id, items.user.id)"   >Accepter</button>
                                             &nbsp;
                                             &nbsp;
                                             &nbsp;
                                             
-                                            <button type="button" class="btn btn-danger">Refuser</button>
+                                            <button type="button" class="btn btn-danger" *ngIf="items.status == 'en attente' " style="color: red;"  (click)="Refuser(items.id,items.user.id)">Refuser</button>
 
                                         </div>
 

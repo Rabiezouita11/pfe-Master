@@ -62,7 +62,7 @@ try {
     });
     Emitters.authEmitter2.emit(true);
 
-    if (response.x === "user") {
+    if (response.x === "user" || response.x === "Agriculteur") {
       this.router.navigate(['/accueil']).then(() => {
         window.location.reload();
       });

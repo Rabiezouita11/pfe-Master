@@ -13,5 +13,6 @@ router.post('/ajouterIduserandidabonnement', Abonnement.ajouterIduserandidabonne
 
 router.get('/showUserAbonnementDemande', Abonnement.xx); // http://localhost:8080/abonnement/xx
 
-
+router.put('/UpdateStatusAccepterAbonnement/:id', Abonnement.UpdateStatusAcepteAbonnement); // http://localhost:8080/abonnement/UpdateStatusAcepteAbonnement/1
+router.put('/UpdateStatusRefuserAbonnement/:id', Abonnement.UpdateStatusRefuserAbonnement); // http://localhost:8080/abonnement/UpdateStatusRefuserAbonnement/1
 module.exports = router;

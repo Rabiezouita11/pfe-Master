@@ -1,6 +1,6 @@
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
-const StatusAbonnementEmail = (email, nom ) => {
+const accepteAbonnement = (email, nom ) => {
  
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -16,7 +16,7 @@ const StatusAbonnementEmail = (email, nom ) => {
     to: email, // list of receivers
     subject: "Status de votre Demande", // Subject line
     html: `<h1>bonsoir  ${nom} </h1><br>
-    <h4>votre demande en Cours de traitement</h4><br> `
+    <h4>votre  demande  et accepter et voici votre application mobile et votre application web</h4><br> `
   };
   transporter.sendMail(mailOptions, (err, data) => {
     if (err) {
@@ -27,5 +27,5 @@ const StatusAbonnementEmail = (email, nom ) => {
 };
 
 module.exports = {
-    StatusAbonnementEmail
+  accepteAbonnement
 };
