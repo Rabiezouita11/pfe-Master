@@ -25,6 +25,7 @@ import { CookieService } from 'ngx-cookie-service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
 

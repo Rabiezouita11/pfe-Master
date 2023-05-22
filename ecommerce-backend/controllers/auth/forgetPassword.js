@@ -1,3 +1,5 @@
+require('dotenv').config(); // Load environment variables from .env file
+
 const { user } = require("../../models");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -49,10 +51,10 @@ async function sendMail(email , link, nom) {
     host: "smtp.gmail.com",
     port: 587,
     secure: false, // true for 465, false for other ports
-    auth: {
-      user: "", // generated ethereal user
-      pass: "",
-    }
+    auth:{
+      user: process.env.EMAIL_USER, // generated ethereal user
+      pass: process.env.EMAIL_PASSWORD, // generated ethereal password
+    },
   });
 
   let mailOptions = {

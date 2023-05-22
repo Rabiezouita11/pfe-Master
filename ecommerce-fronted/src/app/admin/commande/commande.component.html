@@ -39,329 +39,134 @@
         </div>
         <div class="card-body">
           <div class="table-responsive table-desi">
-            <table class="table all-package" id="editableTable">
+            <table class="table all-package" >
               <thead>
               <tr>
-                <th>Order Image</th>
-                <th>Order Code</th>
-                <th>Date</th>
-                <th>Payment Method</th>
-                <th>Delivery Status</th>
-                <th>Amount</th>
-                <th>Option</th>
+                <th>id commande</th>
+                  <th>Produit</th>
+                  <th>totale prix</th>
+                  <th>nom</th>
+                  <th>prenom</th>
+                  <th>type de paiement</th>
+                  <th>etat de commande</th>
+                  <th>date de commande</th>
+                  <th>date_livraison</th>
+                  <th>Option</th>
               </tr>
               </thead>
 
               <tbody>
-              <tr>
-                <td>
-                  <img src="assets/images/dashboard/product/1.jpg" alt="users">
-                </td>
-
-                <td data-field="number">+ 406-4883635</td>
-
-                <td data-field="date">Jul 20, 2021</td>
-
-                <td data-field="text">Paypal</td>
-
-                <td class="order-success">
-                  <span>Approved</span>
-                </td>
-
-                <td data-field="number">$15</td>
-
-                <td>
-                  <a routerLink="/UpdateQuiz">
-                    <i class="fa fa-edit" title="Edit"></i>
-                  </a>
-
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-trash" title="Delete"></i>
-                  </a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/images/dashboard/product/2.jpg" alt="users">
-                </td>
-
-                <td data-field="number">+ 573-685572</td>
-
-                <td data-field="date">Jul 25, 2021</td>
-
-                <td data-field="text">Paypal</td>
-
-                <td class="order-success">
-                  <span>Approved</span>
-                </td>
-
-                <td data-field="number">$15</td>
-
-                <td>
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-edit" title="Edit"></i>
-                  </a>
-
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-trash" title="Delete"></i>
-                  </a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/images/dashboard/product/3.jpg" alt="users">
-                </td>
-
-                <td data-field="number">+ 759-4568734</td>
-
-                <td data-field="date">Jul 29, 2021</td>
-
-                <td data-field="text">Stripe</td>
-
-                <td class="order-warning">
-                  <span>Refunded</span>
-                </td>
-
-                <td data-field="number">$15</td>
-
-                <td>
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-edit" title="Edit"></i>
-                  </a>
-
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-trash" title="Delete"></i>
-                  </a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/images/dashboard/product/4.jpg" alt="users">
-                </td>
-
-                <td data-field="number">+ 546-7664537</td>
-
-                <td data-field="date">Jul 30, 2021</td>
-
-                <td data-field="text">Paypal</td>
-
-                <td class="order-success">
-                  <span>Approved</span>
-                </td>
-
-                <td data-field="number">$15</td>
-
-                <td>
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-edit" title="Edit"></i>
-                  </a>
-
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-trash" title="Delete"></i>
-                  </a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/images/dashboard/product/6.jpg" alt="users">
-                </td>
-
-                <td data-field="number">+ 479-7533144</td>
-
-                <td data-field="date">Aug 01, 2021</td>
-
-                <td data-field="text">Stripe</td>
-
-                <td class="order-success">
-                  <span>Approved</span>
-                </td>
-
-                <td data-field="number">$15</td>
-
-                <td>
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-edit" title="Edit"></i>
-                  </a>
-
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-trash" title="Delete"></i>
-                  </a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="assets/images/dashboard/product/7.jpg" alt="users">
-                </td>
-
-                <td data-field="number">+ 456-1245789</td>
-
-                <td data-field="date">Aug 10, 2021</td>
-
-                <td data-field="text">Stripe</td>
-
-                <td class="order-pending">
-                  <span>Pending</span>
-                </td>
-
-                <td data-field="number">$15</td>
-
-                <td>
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-edit" title="Edit"></i>
-                  </a>
-
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-trash" title="Delete"></i>
-                  </a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/images/dashboard/product/8.jpg" alt="users">
-                </td>
-
-                <td data-field="number">+ 057-3657895</td>
-
-                <td data-field="date">Aug 18, 2021</td>
-
-                <td data-field="text">Paypal</td>
-
-                <td class="order-pending">
-                  <span>Pending</span>
-                </td>
-
-                <td data-field="number">$15</td>
-
-                <td>
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-edit" title="Edit"></i>
-                  </a>
-
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-trash" title="Delete"></i>
-                  </a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/images/dashboard/product/9.jpg" alt="users">
-                </td>
-
-                <td data-field="number">+ 123-1234567</td>
-
-                <td data-field="date">Aug 29, 2021</td>
-
-                <td data-field="text">Paypla</td>
-
-                <td class="order-success">
-                  <span>Approved</span>
-                </td>
-
-                <td data-field="number">$15</td>
-
-                <td>
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-edit" title="Edit"></i>
-                  </a>
-
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-trash" title="Delete"></i>
-                  </a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/images/dashboard/product/10.jpg" alt="users">
-                </td>
-
-                <td data-field="number">+ 987-9876543</td>
-
-                <td data-field="date">Sep 09, 2021</td>
-
-                <td data-field="text">Paypal</td>
-
-                <td class="order-success">
-                  <span>Approved</span>
-                </td>
-
-                <td data-field="number">$15</td>
-
-                <td>
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-edit" title="Edit"></i>
-                  </a>
-
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-trash" title="Delete"></i>
-                  </a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/images/dashboard/product/11.jpg" alt="users">
-                </td>
-
-                <td data-field="number">+ 147-3692584</td>
-
-                <td data-field="date">Sep 17, 2021</td>
-
-                <td data-field="text">Stripe</td>
-
-                <td class="order-success">
-                  <span>Approved</span>
-                </td>
-
-                <td data-field="number">$15</td>
-
-                <td>
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-edit" title="Edit"></i>
-                  </a>
-
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-trash" title="Delete"></i>
-                  </a>
-                </td>
-              </tr>
-
-              <tr>
-                <td>
-                  <img src="assets/images/dashboard/product/12.jpg" alt="users">
-                </td>
-
-                <td data-field="number">+ 586-5865224</td>
-
-                <td data-field="date">Sep 20, 2021</td>
-
-                <td data-field="text">Stripe</td>
-
-                <td class="order-warning">
-                  <span>Refunded</span>
-                </td>
-
-                <td data-field="number">$15</td>
-
-                <td>
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-edit" title="Edit"></i>
-                  </a>
-
-                  <a href="javascript:void(0)">
-                    <i class="fa fa-trash" title="Delete"></i>
-                  </a>
-                </td>
-              </tr>
+          
+                <tr *ngFor="let commande of commandes" >
+                  <td>{{ commande.id }}</td>
+                  <td>{{ commande.Produit }}</td>
+                  <td>{{ commande.total_prix }}</td>
+                  <td>{{ commande.nom }}</td>
+                  <td>{{ commande.prenom }}</td>
+                  <td>{{ commande.typedelivraison }}</td>
+                  <td>
+                    <ng-container *ngIf="commande.etat_commande === 'en cours'; else acceptRejectButtons">
+                      En cours
+                    </ng-container>
+                    <ng-template #acceptRejectButtons>
+                      <ng-container *ngIf="commande.etat_commande === 1; else rejectButton">
+                        Commande acceptée
+                      </ng-container>
+                      <ng-template #rejectButton>
+                        Commande refusée
+                      </ng-template>
+                    </ng-template>
+                  </td>
+                  <td>{{ commande.created }}</td>
+                 <td>
+                    <ng-container *ngIf="commande.date_livraison; else noLivraison">
+                      {{ commande.date_livraison }}
+                    </ng-container>
+                    <ng-template #noLivraison>
+                      No livraison
+                    </ng-template>
+                  </td>
+                  <td>
+
+                    <ng-container *ngIf="commande.etat_commande === 'en cours'">
+                      <a>
+                        <i class="fa fa-edit text-success p-1" style="font-size: x-large;"
+                           (click)="retriveId(commande.id)"
+                           data-bs-toggle="modal" data-bs-target="#exampleModal"
+                           title="Edit"></i>
+                      </a>
+                      <a>
+                        <i class="fa fa-trash text-danger p-1" style="font-size: x-large;"
+                           (click)="retriveId(commande.id)"
+                           data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                           title="Delete"></i>
+                      </a>
+                    </ng-container>
+                  </td>
+   &nbsp;
+                </tr>
+
+             
+   
               </tbody>
             </table>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Accepter la commande</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+     
+      <div class="modal-body">
+     
+        <div style="text-align: center">
+          <button  class="btn btn-success" (click)="updateAccepter()" data-bs-dismiss="modal">Accepter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal1"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel1"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel1">Refuser la commande</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+    
+        <div style="text-align: center">
+          <button  class="btn btn-danger" (click)="updateRefuser()" data-bs-dismiss="modal">Refuser</button>
         </div>
       </div>
     </div>

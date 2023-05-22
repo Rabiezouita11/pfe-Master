@@ -25,40 +25,41 @@ import { EtatDeSerreComponent } from './etat-de-serre/etat-de-serre.component';
 import { AbonnementComponent } from './abonnement/abonnement.component';
 import { AjouterAbonnementComponent } from './abonnement/ajouter-abonnement/ajouter-abonnement.component';
 import { ListeDemandeAbonnementComponent } from './liste-demande-abonnement/liste-demande-abonnement.component';
+import { GuardAgricultureAdminGuard } from '../guard/guard-agriculture-admin.guard';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full' , data: {title: 'Administrateur'}},
-  { path: 'dashboard', component: DashboardComponent , data: {title: 'Administrateur'}},
+  { path: 'dashboard', component: DashboardComponent , data: {title: 'Administrateur'} , canActivate : [GuardAgricultureAdminGuard]},
   { path: 'category', component: CategoryComponent , data: {title: 'Administrateur'}},
   { path: 'category/ajouterCategory', component: AjouterCategoryComponent , data: {title: 'Product'} },
   { path: 'category/update/:id', component: AjouterCategoryComponent , data: {title: 'Product'} },
 
-  { path: 'etat_de_serreIntellegent', component: EtatDeSerreComponent , data: {title: 'Administrateur'}},
-  { path: 'AjouterAbonnement', component: AjouterAbonnementComponent , data: {title: 'Product'} },
-  { path: 'Abonnement', component: AbonnementComponent , data: {title: 'Product'} },
-  { path: 'ListDedemandeAbonnement', component: ListeDemandeAbonnementComponent , data: {title: 'Product'} },
+  { path: 'etat_de_serreIntellegent', component: EtatDeSerreComponent , data: {title: 'Administrateur'} , canActivate : [GuardAgricultureAdminGuard]},
+  { path: 'AjouterAbonnement', component: AjouterAbonnementComponent , data: {title: 'Product'} , canActivate : [GuardAgricultureAdminGuard] },
+  { path: 'Abonnement', component: AbonnementComponent , data: {title: 'Product'} , canActivate : [GuardAgricultureAdminGuard] },
+  { path: 'ListDedemandeAbonnement', component: ListeDemandeAbonnementComponent , data: {title: 'Product'}  , canActivate : [GuardAgricultureAdminGuard]},
 
 
   
   { path: 'Listproduct', component: ProductComponent , data: {title: 'Product'} },
   { path: 'ajouterProduit', component: AjouterProductComponent , data: {title: 'Product'} },
   { path: 'UpdateProduct', component: UpdateProductComponent , data: {title: 'Product'} },
-  { path: 'ListQuiz', component: QuizComponent , data: {title: 'Product'}  },
-  { path: 'ajouterQuiz', component: AjouterQuizComponent , data: {title: 'Product'}} ,
-  { path: 'UpdateQuiz/:id', component: UpdateQuizComponent , data: {title: 'Product'} },
+  { path: 'ListQuiz', component: QuizComponent , data: {title: 'Product'} , canActivate : [GuardAgricultureAdminGuard] },
+  { path: 'ajouterQuiz', component: AjouterQuizComponent , data: {title: 'Product'} , canActivate : [GuardAgricultureAdminGuard]} ,
+  { path: 'UpdateQuiz/:id', component: UpdateQuizComponent , data: {title: 'Product'}, canActivate : [GuardAgricultureAdminGuard] },
   { path: 'profile', component: ProfileComponent , data: {title: 'Product'} },
-  { path: 'listPromotion', component: PromotionComponent , data: {title: 'Product'} } ,
-  { path: 'ajouterPromotion', component: AjouterPromotionComponent , data: {title: 'Product'} } ,
-  { path: 'updatePromotion', component: UpdatePromotionComponent , data: {title: 'Product'} } ,
-  { path: 'client', component: ClientComponent , data: {title: 'Product'} }  ,
-  { path: 'Commande', component: CommandeComponent , data: {title: 'Product'} } ,
-  { path: 'EtatCommande', component: EtatCommandeComponent , data: {title: 'Product'} }  ,
-  { path: 'listlivreur', component: LivreurComponent , data: {title: 'Product'} } ,
-  { path: 'AjouterLivreur', component: AjouterLivreurComponent , data: {title: 'Product'} } ,
-  { path: 'UpdateLivreur', component: UpdateLivreurComponent , data: {title: 'Product'} } ,
-  { path: 'Contact', component: ContactComponent , data: {title: 'Product'} },
-  { path: 'avisAdmin', component: AvisComponent , data: {title: 'Product'} },
+  { path: 'listPromotion', component: PromotionComponent , data: {title: 'Product'}, canActivate : [GuardAgricultureAdminGuard] } ,
+  { path: 'ajouterPromotion', component: AjouterPromotionComponent , data: {title: 'Product'} , canActivate : [GuardAgricultureAdminGuard]} ,
+  { path: 'updatePromotion', component: UpdatePromotionComponent , data: {title: 'Product'} , canActivate : [GuardAgricultureAdminGuard]} ,
+  { path: 'client', component: ClientComponent , data: {title: 'Product'} , canActivate : [GuardAgricultureAdminGuard] }  ,
+  { path: 'Commande', component: CommandeComponent , data: {title: 'Product'} , canActivate : [GuardAgricultureAdminGuard] } ,
+  { path: 'EtatCommande', component: EtatCommandeComponent , data: {title: 'Product'} , canActivate : [GuardAgricultureAdminGuard] }  ,
+  { path: 'listlivreur', component: LivreurComponent , data: {title: 'Product'}  , canActivate : [GuardAgricultureAdminGuard] } ,
+  { path: 'AjouterLivreur', component: AjouterLivreurComponent , data: {title: 'Product'}  , canActivate : [GuardAgricultureAdminGuard]} ,
+  { path: 'UpdateLivreur', component: UpdateLivreurComponent , data: {title: 'Product'}  , canActivate : [GuardAgricultureAdminGuard]} ,
+  { path: 'Contact', component: ContactComponent , data: {title: 'Product'} , canActivate : [GuardAgricultureAdminGuard] },
+  { path: 'avisAdmin', component: AvisComponent , data: {title: 'Product'} , canActivate : [GuardAgricultureAdminGuard] },
 
 ];
 

@@ -1,7 +1,7 @@
 module.exports = {
     HOST: "localhost",
     USER: "root",
-    PASSWORD: "",
+    PASSWORD: "password",
     DB: "ecommerce",
     dialect: "mysql",
     pool: {
@@ -10,4 +10,5 @@ module.exports = {
         acquire: 30000,
         idle: 10000,
     },
+    connectionUrl: "mysql://root:@localhost:3306/ecommerce?allowPublicKeyRetrieval=true"
 };

@@ -29,7 +29,7 @@
           <div class="countdownholder">
             Your cart will be expired in<span id="timer"> 24 </span> H
           </div>
-          <a href="checkout.html" class="cart_checkout btn btn-solid btn-xs"
+          <a routerLink="/checkout" class="cart_checkout btn btn-solid btn-xs"
             >check out</a
           >
         </div>
@@ -136,10 +136,10 @@
     <br />
     <div class="row cart-buttons">
       <div class="col-6">
-        <a href="#" class="btn btn-solid">continue shopping</a>
+        <a routerLink="/accueil" class="btn btn-solid">continue shopping</a>
       </div>
       <div class="col-6" *ngIf="listProduit != 0">
-        <a href="#" class="btn btn-solid">check out</a>
+        <a routerLink="/checkout" class="btn btn-solid">check out</a>
       </div>
     </div>
   </div>

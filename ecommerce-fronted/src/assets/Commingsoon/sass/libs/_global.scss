@@ -1,0 +1,72 @@
+/*
+ * Global Styles
+ */
+
+$browser-context: 18; // Default
+
+body {
+	color       : $body-color;
+	font-family : $primary-font;
+	font-size   : #{$browser-context}px;
+	font-weight : 300;
+	line-height : normal;
+	background-image: radial-gradient(circle, #39323e, #262029);
+	background-size: cover;
+	background-atachment: fixed;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-weight : 700;
+	margin      : 0 0 20px;
+}
+
+hr{ 
+	border: none;
+	border-bottom: 1px solid #777;
+}
+
+ul, ol {
+	margin: 0;
+	padding-left: 0;
+}
+
+a { 
+	text-decoration: none;
+	color: $accent-color;
+}
+
+address { font-style: normal }
+
+p{ margin-top: 0 }
+
+form{
+
+	input,textarea,select{
+		outline: none;
+		border: 2px solid #4c4551;
+		background: #262029;
+		padding: 10px 20px;
+		border-radius: 30px;
+	}
+	select{
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+	textarea{
+		resize: vertical;
+	}
+	input[type="submit"],button, input[type="reset"]{
+		@extend .button;
+	}
+
+}
+.center-aligned{text-align: center}
+.right-aligned{text-align: right}
+.container{
+	&.shrinked{
+		padding: 0 200px;
+		@media screen and (min-width: 991px) and (max-width: 1200px){ padding: 0 100px }
+		@media screen and (max-width: 990px){ padding: 0 20px }
+	}
+}

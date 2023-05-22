@@ -135,7 +135,62 @@
 </div>
 </section>
 <!-- Tab product end -->
+<div class="title1 section-t-space">
+  <h4>Les produits disponibles
+  </h4>
 
+</div>
+<section class="section-b-space pt-0 ratio_asos">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="theme-tab">
+          <ul class="tabs tab-title">
+
+          </ul>
+          <div class="tab-content-cls">
+            <div id="tab-4" class="tab-content active default">
+              <div class="no-slider row">
+                <div class="product-box"    *ngFor="let item of list" >
+                  <div class="img-wrapper">
+                    <div class="front">
+                      <a [routerLink]="['/singleProduct/',item.id ]"><img
+                        [src]="api+item.image" [width]="400" [height]="400"
+                        class="img-fluid blur-up lazyload bg-img"    alt=""></a>
+                    </div>
+
+                 
+                  </div>
+                  <div class="product-detail">
+                    <div class="rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+                        class="fa fa-star"></i></div>
+                    <a href="product-page(no-sidebar).html">
+                      <h6>{{item.nom}}</h6>
+                    </a>
+                    <h4>{{item.prix}}TND </h4>
+                    <ul class="color-variant">
+                      <li class="bg-light0"></li>
+                      <li class="bg-light1"></li>
+                      <li class="bg-light2"></li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div  *ngIf="listabonement?.length==0" class="text-center" >
+    <h3  style="text-align:center ; color: red;">No  Abonnement  Found</h3>
+
+</div>
+</section>
 
 <!-- service layout -->
 <div class="container">

@@ -1,3 +1,5 @@
+require('dotenv').config(); // Load environment variables from .env file
+
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
@@ -8,8 +10,8 @@ const email = (nom , email , produit) => {
     port: 25,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: "", // generated ethereal user
-      pass: "", // generated ethereal password
+      user: process.env.EMAIL_USER, // Use environment variable
+      pass: process.env.EMAIL_PASSWORD, // Use environment variable
     },
   });
   const mailOptions = {

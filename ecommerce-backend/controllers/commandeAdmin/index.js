@@ -1,6 +1,6 @@
 const {affichercommande} = require('./CommandeController');
-
-
+const {accepterCommande} = require('./CommandeController');
+const {RefuserCommande} = require('./CommandeController');
 
 
 
@@ -8,6 +8,8 @@ const {affichercommande} = require('./CommandeController');
 
 module.exports = {
     affichercommande, 
+    accepterCommande,
+    RefuserCommande,
 
     };
     

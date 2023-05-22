@@ -1,0 +1,16 @@
+// Font family
+$primary-font      : Museo, Raleway, "Open Sans", sans-serif;
+$secondary-font    : "Deftone Stylus", Georgia, serif;
+
+
+// Color Variables
+$accent-color      : #61d8ba;
+$primary-color     : $accent-color;
+$secondary-color   : #7d7482;
+
+$strong-color      : #222;
+$body-color        : #fff;
+
+// Grid system
+$grid-columns      : 12 !default;
+$grid-gutter-width : 30px !default;

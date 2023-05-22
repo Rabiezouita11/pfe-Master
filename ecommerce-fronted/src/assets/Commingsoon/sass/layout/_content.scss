@@ -1,0 +1,106 @@
+.section-title{
+	@include em(48);
+	font-weight: 300;
+
+	span{
+		color: $accent-color;
+	}
+}
+
+.counter-wrap{
+	margin: 50px -15px;
+	@include clearfix;
+
+	.counter{
+		width: 25%;
+		padding: 0 15px;
+		float: left;
+		@media screen and (max-width: 600px){ padding: 0 5px }
+	}
+
+	.number{
+		border-radius: 10px;
+		background-image: linear-gradient(#4d4552, #3e3742);
+		border-top: 1px solid lighten(#4d4552,20%);
+		box-shadow: 0 1px 1px rgba(0,0,0,.3);
+		text-align: center;
+		@include em(90);
+		font-weight: 700;
+		padding: 30px 0;
+		margin-bottom: 20px;
+
+		@media screen and (max-width:990px){ @include em(70) }
+		@media screen and (max-width:480px){ @include em(40) }
+	}
+	.caption{
+		text-align: center;
+		text-transform: uppercase;
+		color: $secondary-color;
+		font-weight: 700;
+		@include em(14);
+		text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	}
+}
+
+.entry-content{
+	margin-bottom: 30px;
+	line-height: 36px;
+}
+
+.team-section{padding: 30px 0}
+.team{
+	@extend .col-sm-3;
+	@extend .col-xs-6;
+	text-align: center;
+	margin-bottom: 30px;
+
+	@media screen and (max-width:480px){ width: 100% }
+
+	.team-image{
+		border-radius: 50%;
+		border: 10px solid $secondary-color;
+		box-shadow: 0 -1px 1px rgba(255,255,255,.8),0 1px 1px rgba(0,0,0,.6);
+		margin-bottom: 10px;
+	}
+	.team-name{
+		color: $secondary-color;
+		@include em(14);
+		text-transform: uppercase;
+	}
+}
+
+
+.contact-section{ margin-bottom: 50px }
+.contact-form{
+	@include clearfix;
+
+	.control{
+		margin-bottom: 10px;
+		position: relative;
+		.fa{
+			color: $secondary-color;
+			transition: .3s ease
+		}
+		input,textarea{
+			width: 100%;
+			padding-left: 50px;
+			color: $accent-color;
+			transition: .3s ease;
+
+			&:focus, &:hover{
+				border-color: $accent-color;
+
+				+ .fa{color: $accent-color}
+			}
+		}
+		textarea{
+			min-height: 160px;
+			resize: vertical;
+		}
+		.fa{
+			position: absolute;
+			left:20px;
+			top: 13px;
+		}
+	}
+}
