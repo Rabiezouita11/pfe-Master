@@ -1,4 +1,4 @@
-![firebase](https://github.com/Rabiezouita11/pfe-Master/assets/91283165/231cd1e2-97b0-4c93-8875-dbd2842d419a)
+
 # Modélisation et mise en place une application web e-commerce (serre intelligente)
 
 ## Steps for Project Execution :
@@ -129,9 +129,11 @@ module.exports = app;
 
 ##### Base donner firebase 
 
+![firebae 3](https://github.com/Rabiezouita11/pfe-Master/assets/91283165/f5d7fe4f-c4fa-42c5-b9b3-523740d993a7)
 
+![firebase](https://github.com/Rabiezouita11/pfe-Master/assets/91283165/07211ce4-5e12-4724-9c2a-559840aa4ffe)
 
-![Uploading firebae 3.PNG…]()
-![Uploading firebase2.PNG…]()
+![firebase2](https://github.com/Rabiezouita11/pfe-Master/assets/91283165/a506e02f-22ed-48ad-969d-9a29c892516f)
+
 
 
