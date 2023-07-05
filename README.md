@@ -4,6 +4,29 @@
 ```
 - git clone https://github.com/Rabiezouita11/pfe-Master.git
 ```
+##### Server Install pour site e-commerce
+```
+cd ecommerce-backend  
+npm install 
+npm run dev 
+```
+##### Client Install  pour site e-commerce
+```
+cd ecommerce-fronted
+npm install --force
+ng serve 
+```
+##### Server Install pour  tableau de bord de contrôle
+```
+cd dashboard\backend
+npm install 
+npm run dev 
+```
+##### Client Install  pour tableau de bord de contrôle
+```
+cd dashboard\fronted
+npm install --force
+ng serve
 
 
 configuration email (Server : backend ) : 
@@ -17,9 +40,4 @@ EMAIL_PASSWORD= 'votre mot de passe'
 
 
   
-##### Server Install
-```
-cd ecommerce-backend
-npm install 
-npm run dev 
-```
+
