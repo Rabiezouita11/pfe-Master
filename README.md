@@ -27,7 +27,7 @@ npm run dev
 cd dashboard\fronted
 npm install --force
 ng serve
-
+```
 
 configuration email (Server : backend ) : 
 ```
