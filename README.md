@@ -1,6 +1,10 @@
 
 # Modélisation et mise en place une application web e-commerce (serre intelligente)
 
+
+
+https://www.canva.com/design/DAFjflsdjnA/0sL3ErnfAGLEN_4_CbarxQ/edit?utm_content=DAFjflsdjnA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 ## Steps for Project Execution :
 ```
 - git clone https://github.com/Rabiezouita11/pfe-Master.git
@@ -147,4 +151,6 @@ https://github.com/Rabiezouita11/pfe-Master/assets/91283165/86e3b3ce-b856-4a65-8
 #####  prototype serres intillegents
 
 ![3202ab00-bf77-4901-bd64-b66892b8ee61photo](https://github.com/Rabiezouita11/pfe-Master/assets/91283165/15a659ce-3155-419f-9a42-9d11db0a43f3)
+![20230531_164848_(1)](https://github.com/Rabiezouita11/pfe-Master/assets/91283165/53d33ccb-1e67-4b65-b222-6c4d603e9c98)
+![20230531_164900](https://github.com/Rabiezouita11/pfe-Master/assets/91283165/e5f93173-ef1c-459a-b91a-05acdc4e6d89)
 
