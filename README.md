@@ -2,7 +2,7 @@
 # Modélisation et mise en place une application web e-commerce (serre intelligente)
 
 ## Description du projet:
-```
+
 Application web e-commerce pour la serre intelligente :
 Intégrer des fonctionnalités de panier d'achat, de paiement en ligne et de gestion des commandes pour permettre aux agriculteurs d'acheter des serres intelligentes en ligne.
 Créer une interface utilisateur conviviale et responsive pour une expérience d'achat agréable.
@@ -46,7 +46,7 @@ Solliciter les avis des agriculteurs qui utilisent les serres intelligentes pour
 En utilisant les technologies suivantes : Angular 13, Express.js, Sequelize, MySQL, NoSQL, l'API Nodemailer pour les e-mails, Flutter, l'IoT et Arduino.
 
 Ces éléments vous permettront de créer une application e-commerce complète pour une serre intelligente, en offrant aux agriculteurs une plateforme pour acheter des serres, surveiller leur état, contrôler les paramètres de croissance et interagir avec le système.
-```
+
 
 ## Steps for Project Execution :
 ```
