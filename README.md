@@ -172,10 +172,15 @@ module.exports = app;
 </tbody>
 </table>
 
-## Demo 
+## Demo 1 
 
 
 https://github.com/Rabiezouita11/pfe-Master/assets/91283165/86e3b3ce-b856-4a65-885f-0c0cf4dfad19
+
+## Demo 2
+
+
+https://github.com/Rabiezouita11/pfe-Master/assets/91283165/40c4fb11-7d4b-4813-baa5-565f86b2b2e6
 
 
 
